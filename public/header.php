@@ -318,7 +318,7 @@ include '../../../app/Config/koneksi.php';
                                 <p>User Aplikasi</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon bi bi-box-seam-fill"></i>
                                 <p>
@@ -694,7 +694,7 @@ include '../../../app/Config/koneksi.php';
                                 <i class="nav-icon bi bi-circle text-info"></i>
                                 <p>Informational</p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     <!--end::Sidebar Menu-->
                 </nav>
