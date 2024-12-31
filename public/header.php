@@ -2,7 +2,9 @@
 if (!isset($_SESSION['admin_username'])) {
     header("location:../login/login.php");
 }
+include '../../../app/config/koneksi.php';
 ?>
+
 <!doctype html>
 <html lang="en">
 <!--begin::Head-->
@@ -57,6 +59,8 @@ if (!isset($_SESSION['admin_username'])) {
         href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
         crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -262,17 +266,12 @@ if (!isset($_SESSION['admin_username'])) {
             <div class="sidebar-brand">
                 <!--begin::Brand Link-->
                 <a href="./index.html" class="brand-link">
-                    <!--begin::Brand Image-->
+                    <span class="brand-text fw-light">IT Base </span>
                     <img
-                        src="../../dist/assets/img/AdminLTELogo.png"
-                        alt="AdminLTE Logo"
+                        src="../../../app/Asset/img/jne/JNE.png"
+                        alt="Logo"
                         class="brand-image opacity-75 shadow" />
-                    <!--end::Brand Image-->
-                    <!--begin::Brand Text-->
-                    <span class="brand-text fw-light">AdminLTE 4</span>
-                    <!--end::Brand Text-->
                 </a>
-                <!--end::Brand Link-->
             </div>
             <!--end::Sidebar Brand-->
             <!--begin::Sidebar Wrapper-->
@@ -284,8 +283,8 @@ if (!isset($_SESSION['admin_username'])) {
                         data-lte-toggle="treeview"
                         role="menu"
                         data-accordion="false">
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
                                 <i class="nav-icon bi bi-speedometer"></i>
                                 <p>
                                     Dashboard
@@ -294,12 +293,12 @@ if (!isset($_SESSION['admin_username'])) {
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a href="../dashboard/home.php" class="nav-link ">
                                         <i class="nav-icon bi bi-circle"></i>
-                                        <p>Dashboard v1</p>
+                                        <p>Dashboard IT</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="./index2.html" class="nav-link">
                                         <i class="nav-icon bi bi-circle"></i>
                                         <p>Dashboard v2</p>
@@ -310,13 +309,13 @@ if (!isset($_SESSION['admin_username'])) {
                                         <i class="nav-icon bi bi-circle"></i>
                                         <p>Dashboard v3</p>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="./generate/theme.html" class="nav-link">
-                                <i class="nav-icon bi bi-palette"></i>
-                                <p>Theme Generate</p>
+                            <a href="../user_app/index.php" class="nav-link ">
+                                <i class="nav-icon bi bi-gear"></i>
+                                <p>User Aplikasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
