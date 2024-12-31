@@ -2,7 +2,7 @@
 if (!isset($_SESSION['admin_username'])) {
     header("location:../login/login.php");
 }
-include '../../../app/config/koneksi.php';
+include '../../../app/Config/koneksi.php';
 ?>
 
 <!doctype html>
