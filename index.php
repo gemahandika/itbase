@@ -10,7 +10,7 @@
 
 <body>
   <script>
-    window.location.href = 'public/views/index.php.php'
+    window.location.href = 'public/views/index.php'
   </script>
 </body>
 
