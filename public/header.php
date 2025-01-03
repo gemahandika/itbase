@@ -61,6 +61,10 @@ include '../../../app/Config/koneksi.php';
         crossorigin="anonymous" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -298,26 +302,21 @@ include '../../../app/Config/koneksi.php';
                                         <p>Dashboard IT</p>
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>Dashboard v2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index3.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li> -->
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item pb-4" style="border-bottom: solid 1px; color:aliceblue;">
                             <a href="../user_app/index.php" class="nav-link ">
                                 <i class="nav-icon bi bi-gear"></i>
                                 <p>User Aplikasi</p>
                             </a>
                         </li>
+                        <li class="nav-item mt-4">
+                            <a href="../login/logout.php" class="nav-link">
+                                <i class="nav-icon bi bi-box-arrow-right"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon bi bi-box-seam-fill"></i>
@@ -611,7 +610,7 @@ include '../../../app/Config/koneksi.php';
                                 <p>License</p>
                             </a>
                         </li>
-                        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+                        
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon bi bi-circle-fill"></i>
