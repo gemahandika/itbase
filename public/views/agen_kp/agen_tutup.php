@@ -2,7 +2,7 @@
 session_name("itbase_session");
 session_start();
 include '../../header.php';
-
+include 'modal_counter.php'
 ?>
 <!--begin::App Main-->
 <main class="app-main">
@@ -11,9 +11,9 @@ include '../../header.php';
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Row-->
-            <div class="row">
+            <div class="row" style="border-bottom: 2px solid #000; padding-bottom: 5px;">
                 <div class="col-sm-6">
-                    <h5 class="mb-0">USER APLIKASI</h5>
+                    <h5 class="mb-0">DATA AGEN / KP TUTUP</h5>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
@@ -31,24 +31,28 @@ include '../../header.php';
             <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
-                    <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a>
                     <table id="example" class="display" style="width:100%">
                         <thead>
-                            <tr>
+                            <tr class="btn-danger">
                                 <th class="small text-center">NO</th>
-                                <th class="small text-center">NIP</th>
-                                <th class="small text-center">NAMA USER</th>
-                                <th class="small text-center">USERNAME</th>
+                                <th class="small text-center">CABANG</th>
+                                <th class="small text-center">NAMA AGEN / KP</th>
+                                <th class="small text-center">CUST ID</th>
+                                <th class="small text-center">ORIGIN</th>
+                                <th class="small text-center">PIC</th>
+                                <th class="small text-center">SYSTEM</th>
+                                <th class="small text-center">PRINTER</th>
+                                <th class="small text-center">DATEKEY</th>
+                                <th class="small text-center">TGL TUTUP</th>
                                 <th class="small text-center">STATUS</th>
-                                <th class="small text-center">ACTION</th>
+                                <!-- <th class="small text-center">ACTION</th> -->
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
                             $no = 0;
-                            $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' ORDER BY login_id ASC") or die(mysqli_error($koneksi));
+                            $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter WHERE status = 'TUTUP' ORDER BY id_counter DESC") or die(mysqli_error($koneksi));
                             $result = array();
                             while ($data = mysqli_fetch_array($sql)) {
                                 $result[] = $data;
@@ -58,22 +62,36 @@ include '../../header.php';
                             ?>
                                 <tr>
                                     <td class="small text-center"><?= $no; ?></td>
-                                    <td class="small text-center"><?= $data['nik'] ?></td>
-                                    <td class="small text-center"><?= $data['nama_user'] ?></td>
-                                    <td class="small text-center"><?= $data['username'] ?></td>
-                                    <td class="small text-center"><?= strtoupper($data['status']) ?></td>
-                                    <td class="small text-center">
-                                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#aksesModal<?= $data['login_id'] ?>">Nonaktif</a>
+                                    <td class="small text-center"><?= $data['cabang_counter'] ?></td>
+                                    <td class="small text-center"><?= $data['nama_counter'] ?></td>
+                                    <td class="small text-center"><?= $data['cust_id'] ?></td>
+                                    <td class="small text-center"><?= $data['origin'] ?></td>
+                                    <td class="small text-center"><?= $data['pic'] ?></td>
+                                    <td class="small text-center"><?= $data['sistem'] ?></td>
+                                    <td class="small text-center"><?= $data['printer'] ?></td>
+                                    <td class="small text-center"><?= $data['datekey'] ?></td>
+                                    <td class="small text-center"><?= $data['tutup'] ?></td>
+                                    <td class="small text-center"><?= $data['status'] ?></td>
+                                    <!-- <td class="small text-center d-flex">
+                                        <?php if (has_access($allowed_super_admin)) { ?>
+                                            <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
+                                        <?php } ?>
                                         <form action="edit.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                            <button type="submit" class="btn btn-warning btn-sm">
+                                            <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
                                                 <i class="bi bi-pencil"></i> Edit
                                             </button>
                                         </form>
-                                    </td>
+                                        <form action="counter_tutup.php" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
+                                            <button type="submit" class="btn btn-info btn-sm">
+                                                <i class="bi bi-pencil"></i> Tutup
+                                            </button>
+                                        </form>
+                                    </td> -->
                                 </tr>
+                            <?php } ?>
                         </tbody>
-                    <?php } ?>
                     </table>
                 </div>
             </div>
@@ -139,15 +157,20 @@ include '../../header.php';
         }
     });
 </script>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 <script>
-    new DataTable('#example');
+    $(document).ready(function() {
+        $('#example').DataTable(); // Ganti #example dengan ID tabel Anda
+    });
 </script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 <!--end::OverlayScrollbars Configure-->
 <!--end::Script-->

@@ -3,6 +3,16 @@ if (!isset($_SESSION['admin_username'])) {
     header("location:../login/login.php");
 }
 include '../../../app/Config/koneksi.php';
+include '../../../app/Models/Hak_akses.php';
+$user1 = $_SESSION['admin_username'];
+$sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$user1'") or die(mysqli_error($koneksi));
+$data1 = $sql->fetch_array();
+$nama = $data1['nama_user'];
+$cabang_user = $data1['cabang'];
+$role_user = $data1['status'];
+
+$date = date("Y-m-d");
+$time = date("H:i");
 ?>
 
 <!doctype html>
@@ -60,7 +70,8 @@ include '../../../app/Config/koneksi.php';
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
         crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -223,7 +234,7 @@ include '../../../app/Config/koneksi.php';
                                 src="../../dist/assets/img/user2-160x160.jpg"
                                 class="user-image rounded-circle shadow"
                                 alt="User Image" />
-                            <span class="d-none d-md-inline">Alexander Pierce</span>
+                            <span class="d-none d-md-inline"><?= $cabang_user ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <!--begin::User Image-->
@@ -304,12 +315,45 @@ include '../../../app/Config/koneksi.php';
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-box-seam-fill"></i>
+                                <p>
+                                    Data Agen / KP
+                                    <i class="nav-arrow bi bi-chevron-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../agen_kp/index.php" class="nav-link">
+                                        <i class="nav-icon bi bi-circle"></i>
+                                        <p>Agen & KP</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./widgets/info-box.html" class="nav-link">
+                                        <i class="nav-icon bi bi-circle"></i>
+                                        <p>User Hybrid & MEC</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./widgets/cards.html" class="nav-link">
+                                        <i class="nav-icon bi bi-circle"></i>
+                                        <p>User HO Kurir</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
                         <li class="nav-item pb-4" style="border-bottom: solid 1px; color:aliceblue;">
                             <a href="../user_app/index.php" class="nav-link ">
                                 <i class="nav-icon bi bi-gear"></i>
                                 <p>User Aplikasi</p>
                             </a>
                         </li>
+
                         <li class="nav-item mt-4">
                             <a href="../login/logout.php" class="nav-link">
                                 <i class="nav-icon bi bi-box-arrow-right"></i>
@@ -317,35 +361,7 @@ include '../../../app/Config/koneksi.php';
                             </a>
                         </li>
 
-                        <!-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon bi bi-box-seam-fill"></i>
-                                <p>
-                                    Widgets
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./widgets/small-box.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>Small Box</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./widgets/info-box.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>info Box</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./widgets/cards.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>Cards</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <!-- 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon bi bi-clipboard-fill"></i>
