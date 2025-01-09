@@ -1,5 +1,5 @@
 <?php
-require_once "../config/koneksi.php";
+require_once "../Config/koneksi.php";
 require_once "../Asset/sweetalert/dist/func_sweetAlert.php";
 
 if (isset($_POST['create_agen'])) {
