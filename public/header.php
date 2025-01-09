@@ -332,18 +332,19 @@ $time = date("H:i");
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./widgets/info-box.html" class="nav-link">
+                                    <a href="../user_hybrid/index.php" class="nav-link">
                                         <i class="nav-icon bi bi-circle"></i>
                                         <p>User Hybrid & MEC</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="./widgets/cards.html" class="nav-link">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>User HO Kurir</p>
-                                    </a>
-                                </li>
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="../sca/index.php" class="nav-link">
+                                <i class="nav-icon bi bi-clipboard-fill"></i>
+                                <p>User SCA Kurir</p>
+                            </a>
                         </li>
 
 
