@@ -66,7 +66,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                         <tbody>
                             <?php
                             $no = 0;
-                            $sql = mysqli_query($koneksi, "SELECT * FROM tb_asset ORDER BY id_asset DESC") or die(mysqli_error($koneksi));
+                            $sql = mysqli_query($koneksi, "SELECT * FROM tb_asset WHERE fleet = 'YES' ORDER BY id_asset DESC") or die(mysqli_error($koneksi));
                             $result = array();
                             while ($data = mysqli_fetch_array($sql)) {
                                 $result[] = $data;
