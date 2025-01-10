@@ -34,6 +34,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                     <div class="d-flex">
                         <button type="button" class="btn btn-info mb-4 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
                         <a href="import.php" class="btn btn-warning text-white  mb-4 mr-2">Upload</a>
+                        <a href="export.php" class="btn btn-secondary text-white  mb-4 mr-2">Download</a>
                         <a href="index.php" type="button" class="btn btn-primary mb-4 mr-2">Data All</a>
                         <a href="fleet_done.php" class="btn btn-success  mb-4">Data Fleet Done</a>
                     </div>
