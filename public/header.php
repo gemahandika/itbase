@@ -298,7 +298,7 @@ $time = date("H:i");
                         data-lte-toggle="treeview"
                         role="menu"
                         data-accordion="false">
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a href="#" class="nav-link ">
                                 <i class="nav-icon bi bi-speedometer"></i>
                                 <p>
@@ -314,7 +314,7 @@ $time = date("H:i");
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
