@@ -1,5 +1,5 @@
 <?php
-include("../app/config/koneksi.php");
+include("../../app/Config/koneksi.php");
 session_name("itbase_session");
 session_start();
 

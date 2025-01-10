@@ -25,6 +25,6 @@ function showSweetAlert($icon, $title, $text, $confirmButtonColor, $tujuan)
     </script>";
 }
 
-include '../../../app/config/koneksi.php';
+include '../../../app/Config/koneksi.php';
 mysqli_query($koneksi, "DELETE FROM tb_asset WHERE id_asset = '$_GET[id]'") or die(mysqli_error($koneksi));
 showSweetAlert('success', 'Success', 'Data Berhasil di Hapus', '#dc3545', $tujuan_index);
