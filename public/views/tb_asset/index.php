@@ -106,7 +106,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                                                     <i class="bi bi-pencil"></i> Edit
                                                 </button>
                                             </form>
-                                            <a href="delete.php?id=<?= $data['id_asset'] ?>" class="btn btn-info btn-sm mr-2">Tutup</a>
+                                            <a href="delete.php?id=<?= $data['id_asset'] ?>" class="btn btn-info btn-sm mr-2"> <i class="bi bi-trash"></i>Hapus</a>
                                         </div>
                                     </td>
                                 </tr>
