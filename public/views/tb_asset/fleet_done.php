@@ -19,7 +19,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
             <!--begin::Row-->
             <div class="row" style="border-bottom: 2px solid #000; padding-bottom: 5px;">
                 <div class="col-sm-6">
-                    <h5 class="mb-0">DATA ASSET JNE MEDAN</h5>
+                    <h5 class="mb-0">DATA ASSET JNE MEDAN <b class="text-danger">FLEET</b></h5>
                 </div>
             </div>
         </div>
