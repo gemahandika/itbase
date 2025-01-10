@@ -40,7 +40,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                     <!-- <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a> -->
                     <table id="example" class="display" style="width:100%">
                         <thead>
-                            <tr class="btn-info">
+                            <tr class="btn-success">
                                 <th class="small text-center">NO</th>
                                 <th class="small text-center">PC NAME</th>
                                 <th class="small text-center">FLEET</th>
