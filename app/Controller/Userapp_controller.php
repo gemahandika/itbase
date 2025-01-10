@@ -33,4 +33,14 @@ if (isset($_POST['add_user'])) {
     $akses = trim(mysqli_real_escape_string($koneksi, $_POST['role']));
     mysqli_query($koneksi, "INSERT INTO admin_akses (login_id, akses_id) VALUES('$id', '$akses')");
     showSweetAlert('success', 'Success', 'User Berhasil Di Aktifkan', '#3085d6', '../../public/views/user_app/index.php');
+} else if (isset($_POST['edit_userapp'])) {
+    $id = $_POST['login_id'];
+    $nik = trim(mysqli_real_escape_string($koneksi, $_POST['nik']));
+    $nama_user = trim(mysqli_real_escape_string($koneksi, $_POST['nama_user']));
+    $cabang = trim(mysqli_real_escape_string($koneksi, $_POST['cabang']));
+    $unit = trim(mysqli_real_escape_string($koneksi, $_POST['unit']));
+    $username = trim(mysqli_real_escape_string($koneksi, $_POST['username']));
+    mysqli_query($koneksi, "UPDATE user SET nik='$nik', nama_user='$nama_user', cabang='$cabang', unit='$unit', 
+    username='$username'WHERE login_id='$id'");
+    showSweetAlert('success', 'Success', 'User Berhasil Update', '#3085d6', '../../public/views/user_app/index.php');
 }

@@ -347,6 +347,13 @@ $time = date("H:i");
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="../tb_asset/index.php" class="nav-link">
+                                <i class="nav-icon bi bi-clipboard-fill"></i>
+                                <p>Data Asset</p>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item pb-4" style="border-bottom: solid 1px; color:aliceblue;">
                             <a href="../user_app/index.php" class="nav-link ">

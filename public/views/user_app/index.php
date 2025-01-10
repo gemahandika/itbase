@@ -63,11 +63,16 @@ include '../../header.php';
                                     <td class="small text-center"><?= $data['username'] ?></td>
                                     <td class="small text-center"><?= strtoupper($data['status']) ?></td>
                                     <td class="small text-center">
-                                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#aksesModal<?= $data['login_id'] ?>">Nonaktif</a>
-                                        <form action="edit.php" method="post" style="display:inline;">
+                                        <form action="edit_userapp.php" method="post" style="display:inline;">
                                             <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                            <button type="submit" class="btn btn-warning btn-sm">
+                                            <button type="submit" class="btn btn-info btn-sm">
                                                 <i class="bi bi-pencil"></i> Edit
+                                            </button>
+                                        </form>
+                                        <form action="nonaktif_userapp.php" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="bi bi-lock"></i> Nonaktif
                                             </button>
                                         </form>
                                     </td>
