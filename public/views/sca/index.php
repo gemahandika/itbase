@@ -31,74 +31,76 @@ include 'modal_sca.php';
             <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-success mb-4 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
-                        <button type="button" class="btn btn-info mb-4 mr-2">Download</button>
-                        <a href="import.php" class="btn btn-primary  mb-4">Upload</a>
+                    <div class="card mb-4 p-2">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-success mb-4 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
+                            <button type="button" class="btn btn-info mb-4 mr-2">Download</button>
+                            <a href="import.php" class="btn btn-primary  mb-4">Upload</a>
 
-                    </div>
-                    <!-- <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a> -->
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th class="small text-center">NO</th>
-                                <th class="small text-center">ID KURIR</th>
-                                <th class="small text-center">PASSWORD</th>
-                                <th class="small text-center">FULLNAME</th>
-                                <th class="small text-center">NIK</th>
-                                <th class="small text-center">PHONE</th>
-                                <th class="small text-center">ZONA</th>
-                                <th class="small text-center">CABANG</th>
-                                <th class="small text-center">AGEN / KCU</th>
-                                <th class="small text-center">JOBTASK</th>
-                                <th class="small text-center">ACTION</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php
-                            $no = 0;
-                            $sql = mysqli_query($koneksi, "SELECT * FROM tb_sca ORDER BY id_sca DESC") or die(mysqli_error($koneksi));
-                            $result = array();
-                            while ($data = mysqli_fetch_array($sql)) {
-                                $result[] = $data;
-                            }
-                            foreach ($result as $data) {
-                                $no++;
-                            ?>
-
+                        </div>
+                        <!-- <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a> -->
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
                                 <tr>
-                                    <td class="small text-center"><?= $no; ?></td>
-                                    <td class="small text-center"><?= $data['kurir_id'] ?></td>
-                                    <td class="small text-center"><?= $data['password_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['fullname_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['nik_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['phone_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['zona_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['cabang_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['status_sca'] ?></td>
-                                    <td class="small text-center"><?= $data['jobtask_sca'] ?></td>
-                                    <td class="small text-center d-flex">
-                                        <?php if (has_access($allowed_super_admin)) { ?>
-                                            <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
-                                        <?php } ?>
-                                        <form action="edit_sca.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="<?= $data['id_sca'] ?>">
-                                            <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
-                                                <i class="bi bi-pencil"></i> Edit
-                                            </button>
-                                        </form>
-                                        <form action="counter_tutup.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="<?= $data['id_sca'] ?>">
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="bi bi-lock"></i> Nonaktif
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <th class="small text-center">NO</th>
+                                    <th class="small text-center">ID KURIR</th>
+                                    <th class="small text-center">PASSWORD</th>
+                                    <th class="small text-center">FULLNAME</th>
+                                    <th class="small text-center">NIK</th>
+                                    <th class="small text-center">PHONE</th>
+                                    <th class="small text-center">ZONA</th>
+                                    <th class="small text-center">CABANG</th>
+                                    <th class="small text-center">AGEN / KCU</th>
+                                    <th class="small text-center">JOBTASK</th>
+                                    <th class="small text-center">ACTION</th>
                                 </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $no = 0;
+                                $sql = mysqli_query($koneksi, "SELECT * FROM tb_sca ORDER BY id_sca DESC") or die(mysqli_error($koneksi));
+                                $result = array();
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    $result[] = $data;
+                                }
+                                foreach ($result as $data) {
+                                    $no++;
+                                ?>
+
+                                    <tr>
+                                        <td class="small text-center"><?= $no; ?></td>
+                                        <td class="small text-center"><?= $data['kurir_id'] ?></td>
+                                        <td class="small text-center"><?= $data['password_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['fullname_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['nik_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['phone_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['zona_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['cabang_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['status_sca'] ?></td>
+                                        <td class="small text-center"><?= $data['jobtask_sca'] ?></td>
+                                        <td class="small text-center d-flex">
+                                            <?php if (has_access($allowed_super_admin)) { ?>
+                                                <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
+                                            <?php } ?>
+                                            <form action="edit_sca.php" method="post" style="display:inline;">
+                                                <input type="hidden" name="id" value="<?= $data['id_sca'] ?>">
+                                                <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
+                                                    <i class="bi bi-pencil"></i> Edit
+                                                </button>
+                                            </form>
+                                            <form action="counter_tutup.php" method="post" style="display:inline;">
+                                                <input type="hidden" name="id" value="<?= $data['id_sca'] ?>">
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-lock"></i> Nonaktif
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--end::Row-->

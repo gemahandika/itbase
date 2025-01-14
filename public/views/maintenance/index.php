@@ -2,56 +2,49 @@
 session_name("itbase_session");
 session_start();
 include '../../header.php';
-
+include 'modal_maintenance.php';
 ?>
-<!--begin::App Main-->
+
 <main class="app-main">
-    <!--begin::App Content Header-->
     <div class="app-content-header">
-        <!--begin::Container-->
         <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row">
+            <div class="row" style="border-bottom: 2px solid #000; padding-bottom: 5px;">
                 <div class="col-sm-6">
-                    <h5 class="mb-0">USER APLIKASI</h5>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Simple Tables</li>
-                    </ol>
+                    <h5 class="mb-0">DATA MAINTENANCE IT </h5>
                 </div>
             </div>
         </div>
     </div>
-    <!--begin::App Content-->
     <div class="app-content">
-        <!--begin::Container-->
         <div class="container-fluid">
-            <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card mb-4 p-3">
+                    <div class="card mb-4 p-4">
                         <div class="d-flex">
-                            <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
-                            <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a>
+                            <button type="button" class="btn btn-info mb-4 mr-2" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon bi bi-plus-circle-fill"></i> Tambah Data</button>
+                            <a href="export.php" type="button" class="btn btn-secondary mb-4 mr-2" target="_blank"><i class="nav-icon bi bi-cloud-download-fill"></i> Download</a>
                         </div>
                         <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr class="btn-secondary">
                                     <th class="small text-center">NO</th>
-                                    <th class="small text-center">NIP</th>
-                                    <th class="small text-center">NAMA USER</th>
-                                    <th class="small text-center">USERNAME</th>
-                                    <th class="small text-center">STATUS</th>
+                                    <th class="small text-center">CABANG</th>
+                                    <th class="small text-center">TYPE MAINTENANCE</th>
+                                    <th class="small text-center">JENIS MAINTENANCE</th>
+                                    <th class="small text-center">UNIT</th>
+                                    <th class="small text-center">PIC REQUEST</th>
+                                    <th class="small text-center">TANGGAL</th>
+                                    <th class="small text-center">PROBLEM</th>
+                                    <th class="small text-center">TGL SOLVED</th>
+                                    <th class="small text-center">PIC PROSES</th>
+                                    <th class="small text-center">KETERANGAN</th>
                                     <th class="small text-center">ACTION</th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 <?php
                                 $no = 0;
-                                $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' ORDER BY login_id ASC") or die(mysqli_error($koneksi));
+                                $sql = mysqli_query($koneksi, "SELECT * FROM maintenance ORDER BY id_maintenance DESC") or die(mysqli_error($koneksi));
                                 $result = array();
                                 while ($data = mysqli_fetch_array($sql)) {
                                     $result[] = $data;
@@ -61,56 +54,39 @@ include '../../header.php';
                                 ?>
                                     <tr>
                                         <td class="small text-center"><?= $no; ?></td>
-                                        <td class="small text-center"><?= $data['nik'] ?></td>
-                                        <td class="small text-center"><?= $data['nama_user'] ?></td>
-                                        <td class="small text-center"><?= $data['username'] ?></td>
-                                        <td class="small text-center"><?= strtoupper($data['status']) ?></td>
-                                        <td class="small text-center">
-                                            <form action="edit_userapp.php" method="post" style="display:inline;">
-                                                <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                                <button type="submit" class="btn btn-info btn-sm">
-                                                    <i class="bi bi-pencil"></i> Edit
-                                                </button>
-                                            </form>
-                                            <form action="nonaktif_userapp.php" method="post" style="display:inline;">
-                                                <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    <i class="bi bi-lock"></i> Nonaktif
-                                                </button>
-                                            </form>
+                                        <td class="small text-center"><?= $data['cabang'] ?></td>
+                                        <td class="small text-center"><?= $data['type_maintenance'] ?></td>
+                                        <td class="small text-center"><?= $data['jenis_maintenance'] ?></td>
+                                        <td class="small text-center"><?= $data['unit'] ?></td>
+                                        <td class="small text-center"><?= $data['pic_request'] ?></td>
+                                        <td class="small text-center"><?= $data['tgl_request'] ?></td>
+                                        <td class="small text-center"><?= $data['problem'] ?></td>
+                                        <td class="small text-center"><?= $data['tgl_solved'] ?></td>
+                                        <td class="small text-center"><?= $data['pic_proses'] ?></td>
+                                        <td class="small text-center"><?= $data['keterangan'] ?></td>
+                                        <td class="small text-center d-flex">
+                                            <div class="d-flex justify-content-center align-items-center mt-3">
+                                                <form action="edit.php" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="<?= $data['id_maintenance'] ?>">
+                                                    <button type="submit" class="btn btn-info btn-sm text-white mr-2">
+                                                        <i class="bi bi-pencil"></i> Edit
+                                                    </button>
+                                                </form>
+                                                <a href="delete.php?id=<?= $data['id_maintenance'] ?>" class="btn btn-secondary btn-sm mr-2"> <i class="bi bi-trash"></i>Hapus</a>
+                                            </div>
                                         </td>
                                     </tr>
+                                <?php } ?>
                             </tbody>
-                        <?php } ?>
                         </table>
                     </div>
                 </div>
             </div>
-            <!--end::Row-->
         </div>
-        <!--end::Container-->
     </div>
-    <!--end::App Content-->
 </main>
-<!--end::App Main-->
-<!--begin::Footer-->
-<footer class="app-footer">
-    <!--begin::To the end-->
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <!--end::To the end-->
-    <!--begin::Copyright-->
-    <strong>
-        Copyright &copy; 2014-2024&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-    </strong>
-    All rights reserved.
-    <!--end::Copyright-->
-</footer>
-<!--end::Footer-->
 </div>
-<!--end::App Wrapper-->
-<!--begin::Script-->
-<!--begin::Third Party Plugin(OverlayScrollbars)-->
+
 <script
     src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
     integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
@@ -148,19 +124,19 @@ include '../../header.php';
         }
     });
 </script>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-<script>
-    new DataTable('#example');
-</script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            responsive: true, // Membuat tabel responsif
+            scrollX: true // Mengaktifkan scroll horizontal jika tabel terlalu lebar
+        });
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<!--end::OverlayScrollbars Configure-->
-<!--end::Script-->
 </body>
-<!--end::Body-->
 
 </html>

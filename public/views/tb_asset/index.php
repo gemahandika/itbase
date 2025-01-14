@@ -31,89 +31,102 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
             <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-info mb-4 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
-                        <a href="import.php" class="btn btn-warning text-white  mb-4 mr-2">Upload</a>
-                        <a href="export.php" class="btn btn-secondary text-white  mb-4 mr-2" target="_blank">Download</a>
-                        <a href="index.php" type="button" class="btn btn-primary mb-4 mr-2">Data All</a>
-                        <a href="fleet_done.php" class="btn btn-success  mb-4">Data Fleet Done</a>
-                    </div>
-                    <!-- <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a> -->
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr class="btn-primary">
-                                <th class="small text-center">NO</th>
-                                <th class="small text-center">PC NAME</th>
-                                <th class="small text-center">FLEET</th>
-                                <th class="small text-center">DIVISI</th>
-                                <th class="small text-center">PIC</th>
-                                <th class="small text-center">TYPE</th>
-                                <th class="small text-center">BRAND</th>
-                                <th class="small text-center">MODEL</th>
-                                <th class="small text-center">SERIAL NUMBER</th>
-                                <th class="small text-center">SITEM OPERASI</th>
-                                <th class="small text-center">LICENSE OS</th>
-                                <th class="small text-center">OFFICE</th>
-                                <th class="small text-center">LICENSE OFFICE</th>
-                                <th class="small text-center">ANTIVIRUS</th>
-                                <th class="small text-center">LICENSE ANTIVIRUS</th>
-                                <th class="small text-center">OTHER_SOFTWARE</th>
-                                <th class="small text-center">LICENSE SOFTWARE</th>
-                                <th class="small text-center">MAINTENED BY</th>
-                                <th class="small text-center">ACTION</th>
-                            </tr>
-                        </thead>
+                    <div class="card mb-4 p-2">
+                        <div class="d-flex flex-wrap flex-md-nowrap">
+                            <button type="button" class="btn btn-info mb-4 mr-2 w-100 w-md-auto" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon bi bi-plus-circle-fill"></i>
+                                Tambah Data
+                            </button>
+                            <a href="index.php" class="btn btn-primary mb-4 mr-2 w-100 w-md-auto mr-2">
+                                Data All
+                            </a>
+                            <a href="fleet_done.php" class="btn btn-success mb-4 w-100 w-md-auto mr-2">
+                                Data Fleet Done
+                            </a>
+                            <a href="export.php" class="btn btn-secondary text-white mb-4 mr-2 w-100 w-md-auto" target="_blank"><i class="nav-icon bi bi-cloud-download-fill"></i>
+                                Download
+                            </a>
+                            <a href="import.php" class="btn btn-warning text-white mb-4  w-100 w-md-auto"><i class="nav-icon bi bi-cloud-upload-fill"></i>
+                                Upload
+                            </a>
+                        </div>
 
-                        <tbody>
-                            <?php
-                            $no = 0;
-                            $sql = mysqli_query($koneksi, "SELECT * FROM tb_asset ORDER BY id_asset DESC") or die(mysqli_error($koneksi));
-                            $result = array();
-                            while ($data = mysqli_fetch_array($sql)) {
-                                $result[] = $data;
-                            }
-                            foreach ($result as $data) {
-                                $no++;
-                            ?>
-
-                                <tr>
-                                    <td class="small text-center"><?= $no; ?></td>
-                                    <td class="small text-center <?= strtolower($data['pc_name']) === 'no' ? 'text-danger' : 'text-success' ?>">
-                                        <b><?= $data['pc_name'] ?></b>
-                                    </td>
-                                    <td class="small text-center <?= strtolower($data['fleet']) === 'no' ? 'text-danger' : 'text-success' ?>">
-                                        <b><?= $data['fleet'] ?></b>
-                                    </td>
-                                    <td class="small text-center"><?= $data['divisi_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['pic_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['type_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['brand_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['model_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['sn_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['os_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['license_os'] ?></td>
-                                    <td class="small text-center"><?= $data['office_asset'] ?></td>
-                                    <td class="small text-center"><?= $data['license_office'] ?></td>
-                                    <td class="small text-center"><?= $data['antivirus'] ?></td>
-                                    <td class="small text-center"><?= $data['license_antivirus'] ?></td>
-                                    <td class="small text-center"><?= $data['other_software'] ?></td>
-                                    <td class="small text-center"><?= $data['license_other'] ?></td>
-                                    <td class="small text-center"><?= $data['maintained'] ?></td>
-                                    <td class="small text-center">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <form action="edit.php" method="post" style="display:inline;">
-                                                <input type="hidden" name="id" value="<?= $data['id_asset'] ?>">
-                                                <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
-                                                    <i class="bi bi-pencil"></i> Edit
-                                                </button>
-                                            </form>
-                                            <a href="delete.php?id=<?= $data['id_asset'] ?>" class="btn btn-info btn-sm mr-2"> <i class="bi bi-trash"></i>Hapus</a>
-                                        </div>
-                                    </td>
+                        <!-- <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a> -->
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr class="btn-secondary">
+                                    <th class="small text-center">NO</th>
+                                    <th class="small text-center">PC NAME</th>
+                                    <th class="small text-center">FLEET</th>
+                                    <th class="small text-center">DIVISI</th>
+                                    <th class="small text-center">PIC</th>
+                                    <th class="small text-center">TYPE</th>
+                                    <th class="small text-center">BRAND</th>
+                                    <th class="small text-center">MODEL</th>
+                                    <th class="small text-center">SERIAL NUMBER</th>
+                                    <th class="small text-center">SITEM OPERASI</th>
+                                    <th class="small text-center">LICENSE OS</th>
+                                    <th class="small text-center">OFFICE</th>
+                                    <th class="small text-center">LICENSE OFFICE</th>
+                                    <th class="small text-center">ANTIVIRUS</th>
+                                    <th class="small text-center">LICENSE ANTIVIRUS</th>
+                                    <th class="small text-center">OTHER_SOFTWARE</th>
+                                    <th class="small text-center">LICENSE SOFTWARE</th>
+                                    <th class="small text-center">MAINTENED BY</th>
+                                    <th class="small text-center">ACTION</th>
                                 </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $no = 0;
+                                $sql = mysqli_query($koneksi, "SELECT * FROM tb_asset ORDER BY id_asset DESC") or die(mysqli_error($koneksi));
+                                $result = array();
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    $result[] = $data;
+                                }
+                                foreach ($result as $data) {
+                                    $no++;
+                                ?>
+
+                                    <tr>
+                                        <td class="small text-center"><?= $no; ?></td>
+                                        <td class="small text-center <?= strtolower($data['pc_name']) === 'no' ? 'text-danger' : 'text-success' ?>">
+                                            <b><?= $data['pc_name'] ?></b>
+                                        </td>
+                                        <td class="small text-center <?= strtolower($data['fleet']) === 'no' ? 'text-danger' : 'text-success' ?>">
+                                            <b><?= $data['fleet'] ?></b>
+                                        </td>
+                                        <td class="small text-center"><?= $data['divisi_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['pic_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['type_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['brand_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['model_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['sn_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['os_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['license_os'] ?></td>
+                                        <td class="small text-center"><?= $data['office_asset'] ?></td>
+                                        <td class="small text-center"><?= $data['license_office'] ?></td>
+                                        <td class="small text-center"><?= $data['antivirus'] ?></td>
+                                        <td class="small text-center"><?= $data['license_antivirus'] ?></td>
+                                        <td class="small text-center"><?= $data['other_software'] ?></td>
+                                        <td class="small text-center"><?= $data['license_other'] ?></td>
+                                        <td class="small text-center"><?= $data['maintained'] ?></td>
+                                        <td class="small text-center">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <form action="edit.php" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="<?= $data['id_asset'] ?>">
+                                                    <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
+                                                        <i class="bi bi-pencil"></i> Edit
+                                                    </button>
+                                                </form>
+                                                <a href="delete.php?id=<?= $data['id_asset'] ?>" class="btn btn-info btn-sm mr-2"> <i class="bi bi-trash"></i>Hapus</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--end::Row-->
