@@ -280,6 +280,14 @@ $time = date("H:i");
                                 <p>Data Asset</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../printer_label/index.php">
+                                <i class="nav-icon bi bi-printer-fill"></i>
+                                <p>Printer Label</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item" style="border-bottom: solid 1px; color:aliceblue">
                             <a href="../user_app/index.php" class="nav-link">
                                 <i class="nav-icon bi bi-gear"></i>
