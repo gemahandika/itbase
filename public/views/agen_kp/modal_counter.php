@@ -47,7 +47,10 @@ include '../../../app/Config/koneksi.php';
                         <label for="pic" class="col-form-label"><b>PIC :</b></label>
                         <input type="text" class="form-control" id="pic" name="pic" required>
                     </div>
-
+                    <div class="form-group" style="font-size: 14px;">
+                        <label for="phone" class="col-form-label"><b>PHONE :</b></label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
                     <div class="form-group" style="font-size: 14px;">
                         <label for="sistem" class="col-form-label"><b>SISTEM :</b></label>
                         <select class="form-select" id="sistem" name="sistem" aria-label="Default select example" required>

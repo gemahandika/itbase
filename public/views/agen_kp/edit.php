@@ -121,6 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="text" class="form-control" id="validationCustom04" name="pic" value="<?= htmlspecialchars($data['pic']) ?>" required />
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label">PHONE</label>
+                                        <input type="text" class="form-control" id="validationCustom04" name="phone" value="<?= htmlspecialchars($data['phone']) ?>" required />
+                                    </div>
+                                    <div class="col-md-4">
                                         <label for="validationCustom05" class="form-label">System</label>
                                         <select class="form-select" id="sistem" name="sistem" aria-label="Default select example" required>
                                             <option value="<?= htmlspecialchars($data['sistem']) ?>"><?= htmlspecialchars($data['sistem']) ?></option>

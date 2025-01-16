@@ -8,13 +8,14 @@ if (isset($_POST['create_agen'])) {
     $cust_id = trim(mysqli_real_escape_string($koneksi, $_POST['cust_id']));
     $origin = trim(mysqli_real_escape_string($koneksi, $_POST['origin']));
     $pic = trim(mysqli_real_escape_string($koneksi, $_POST['pic']));
+    $phone = trim(mysqli_real_escape_string($koneksi, $_POST['phone']));
     $sistem = trim(mysqli_real_escape_string($koneksi, $_POST['sistem']));
     $printer = trim(mysqli_real_escape_string($koneksi, $_POST['printer']));
     $datekey = trim(mysqli_real_escape_string($koneksi, $_POST['datekey']));
     $status = trim(mysqli_real_escape_string($koneksi, $_POST['status']));
 
-    mysqli_query($koneksi, "INSERT INTO tb_counter ( cabang_counter, nama_counter , cust_id, origin, pic, sistem, printer, datekey, status) 
-    VALUES( '$cabang', '$nama', '$cust_id', '$origin', '$pic','$sistem',$printer,'$datekey','$status')");
+    mysqli_query($koneksi, "INSERT INTO tb_counter ( cabang_counter, nama_counter , cust_id, origin, pic, phone, sistem, printer, datekey, status) 
+    VALUES( '$cabang', '$nama', '$cust_id', '$origin', '$pic', '$phone', '$sistem',$printer,'$datekey','$status')");
     showSweetAlert('success', 'Sukses', $pesan_ok, '#3085d6', '../../public/views/agen_kp/index.php');
 } else if (isset($_POST['edit_counter'])) {
     $id = $_POST['id_counter'];
@@ -23,13 +24,14 @@ if (isset($_POST['create_agen'])) {
     $cust_id = trim(mysqli_real_escape_string($koneksi, $_POST['cust_id']));
     $origin = trim(mysqli_real_escape_string($koneksi, $_POST['origin']));
     $pic = trim(mysqli_real_escape_string($koneksi, $_POST['pic']));
+    $phone = trim(mysqli_real_escape_string($koneksi, $_POST['phone']));
     $sistem = trim(mysqli_real_escape_string($koneksi, $_POST['sistem']));
     $printer = trim(mysqli_real_escape_string($koneksi, $_POST['printer']));
     $datekey = trim(mysqli_real_escape_string($koneksi, $_POST['datekey']));
     $status = trim(mysqli_real_escape_string($koneksi, $_POST['status']));
 
     mysqli_query($koneksi, "UPDATE tb_counter SET cabang_counter='$cabang', nama_counter='$nama', cust_id='$cust_id', origin='$origin',
-    pic='$pic', sistem='$sistem', printer=$printer, datekey='$datekey', status='$status'  WHERE id_counter='$id'");
+    pic='$pic', phone='$phone', sistem='$sistem', printer=$printer, datekey='$datekey', status='$status'  WHERE id_counter='$id'");
     showSweetAlert('success', 'Sukses', $pesan_update, '#3085d6', '../../public/views/agen_kp/index.php');
 } else if (isset($_POST['Tutup_counter'])) {
     $id = trim(mysqli_real_escape_string($koneksi, $_POST['id_counter']));

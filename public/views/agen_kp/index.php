@@ -34,6 +34,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                                     <th class="small text-center">CUST ID</th>
                                     <th class="small text-center">ORIGIN</th>
                                     <th class="small text-center">PIC</th>
+                                    <th class="small text-center">PHONE</th>
                                     <th class="small text-center">SYSTEM</th>
                                     <th class="small text-center">PRINTER</th>
                                     <th class="small text-center">DATEKEY</th>
@@ -59,6 +60,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                                         <td class="small text-center"><?= $data['cust_id'] ?></td>
                                         <td class="small text-center"><?= $data['origin'] ?></td>
                                         <td class="small text-center"><?= $data['pic'] ?></td>
+                                        <td class="small text-center"><?= $data['phone'] ?></td>
                                         <td class="small text-center"><?= $data['sistem'] ?></td>
                                         <td class="small text-center"><?= $data['printer'] ?></td>
                                         <td class="small text-center"><?= $data['datekey'] ?></td>
