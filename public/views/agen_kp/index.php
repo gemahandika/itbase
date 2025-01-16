@@ -65,7 +65,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                                         <td class="small text-center"><?= $data['status'] ?></td>
                                         <td class="small text-center d-flex">
                                             <?php if (has_access($allowed_super_admin)) { ?>
-                                                <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
+                                                <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-info btn-sm mr-2">Hapus</a>
                                             <?php } ?>
                                             <form action="edit.php" method="post" style="display:inline;">
                                                 <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
