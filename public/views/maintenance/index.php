@@ -33,9 +33,11 @@ include 'modal_maintenance.php';
                                     <th class="small text-center">JENIS MAINTENANCE</th>
                                     <th class="small text-center">UNIT</th>
                                     <th class="small text-center">PIC REQUEST</th>
-                                    <th class="small text-center">TANGGAL</th>
+                                    <th class="small text-center">TGL REQ</th>
+                                    <th class="small text-center">JAM REQ</th>
                                     <th class="small text-center">PROBLEM</th>
                                     <th class="small text-center">TGL SOLVED</th>
+                                    <th class="small text-center">JAM SOLVED</th>
                                     <th class="small text-center">PIC PROSES</th>
                                     <th class="small text-center">KETERANGAN</th>
                                     <th class="small text-center">ACTION</th>
@@ -60,8 +62,10 @@ include 'modal_maintenance.php';
                                         <td class="small text-center"><?= $data['unit'] ?></td>
                                         <td class="small text-center"><?= $data['pic_request'] ?></td>
                                         <td class="small text-center"><?= $data['tgl_request'] ?></td>
+                                        <td class="small text-center"><?= $data['jam_request'] ?></td>
                                         <td class="small text-center"><?= $data['problem'] ?></td>
                                         <td class="small text-center"><?= $data['tgl_solved'] ?></td>
+                                        <td class="small text-center"><?= $data['jam_solved'] ?></td>
                                         <td class="small text-center"><?= $data['pic_proses'] ?></td>
                                         <td class="small text-center"><?= $data['keterangan'] ?></td>
                                         <td class="small text-center d-flex">

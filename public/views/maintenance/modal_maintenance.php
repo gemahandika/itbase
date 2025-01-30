@@ -31,6 +31,7 @@ include '../../../app/Config/koneksi.php';
                             <?php } ?>
                         </select>
                     </div>
+
                     <div class="form-group" style="font-size: 14px;">
                         <label for="type_maintenance" class="col-form-label"><b>TYPE MAINTENANCE <span class="text-danger"> *</span></b></label>
                         <select class="form-select" id="type_maintenance" name="type_maintenance" aria-label="Default select example" required>
@@ -41,8 +42,15 @@ include '../../../app/Config/koneksi.php';
 
                     <div class="form-group" style="font-size: 14px;">
                         <label for="jenis_maintenance" class="col-form-label"><b>JENIS MAINTENANCE <span class="text-danger"> *</span></b></label>
-                        <input type="text" class="form-control" id="jenis_maintenance" name="jenis_maintenance" required>
+                        <select class="form-select" id="jenis_maintenance" name="jenis_maintenance" aria-label="Default select example" required>
+                            <option value="REQUEST IT">REQUEST IT</option>
+                            <option value="MAINTENANCE">MAINTENANCE</option>
+                            <option value="TROUBLESHOOTING">TROUBLESHOOTING</option>
+                            <option value="UPGRADE">UPGRADE</option>
+                        </select>
                     </div>
+
+
                     <div class="form-group" style="font-size: 14px;">
                         <label for="unit" class="col-form-label"><b>UNIT <span class="text-danger"> *</span></b></label>
                         <select class="form-select" id="unit" name="unit" aria-label="Default select example" required>
@@ -71,13 +79,25 @@ include '../../../app/Config/koneksi.php';
                     </div>
 
                     <div class="form-group" style="font-size: 14px;">
+                        <label for="jam_request" class="col-form-label"><b>JAM REQ <span class="text-danger"> *</span></b>:</label>
+                        <input type="time" class="form-control" id="jam_request" name="jam_request" value="<?= $time  ?>" required>
+                    </div>
+
+                    <div class="form-group" style="font-size: 14px;">
                         <label for="problem" class="col-form-label"><b>PROBLEM <span class="text-danger"> *</span></b></label>
                         <input type="text" class="form-control" id="problem" name="problem" required>
                     </div>
+
                     <div class="form-group" style="font-size: 14px;">
                         <label for="tgl_solved" class="col-form-label"><b>TANGGAL SOLVED <span class="text-danger"> *</span></b></label>
                         <input type="date" class="form-control" id="tgl_solved" name="tgl_solved" value="<?= $date ?>" required>
                     </div>
+
+                    <div class="form-group" style="font-size: 14px;">
+                        <label for="jam_solved" class="col-form-label"><b>JAM SOLVED <span class="text-danger"> *</span></b></label>
+                        <input type="time" class="form-control" id="jam_solved" name="jam_solved" value="<?= $time ?>" required>
+                    </div>
+
                     <input type="hidden" class="form-control" id="pic_proses" name="pic_proses" value="<?= $nama ?>" required>
                     <div class="form-group" style="font-size: 14px;">
                         <label for="keterangan" class="col-form-label"><b>KETERANGAN <span class="text-danger"> *</span></b></label>

@@ -9,13 +9,15 @@ if (isset($_POST['create_maintenance'])) {
     $unit = trim(mysqli_real_escape_string($koneksi, $_POST['unit']));
     $pic_request = trim(mysqli_real_escape_string($koneksi, $_POST['pic_request']));
     $tgl_request = trim(mysqli_real_escape_string($koneksi, $_POST['tgl_request']));
+    $jam_request = trim(mysqli_real_escape_string($koneksi, $_POST['jam_request']));
     $problem = trim(mysqli_real_escape_string($koneksi, $_POST['problem']));
     $tgl_solved = trim(mysqli_real_escape_string($koneksi, $_POST['tgl_solved']));
+    $jam_solved = trim(mysqli_real_escape_string($koneksi, $_POST['jam_solved']));
     $pic_proses = trim(mysqli_real_escape_string($koneksi, $_POST['pic_proses']));
     $keterangan = trim(mysqli_real_escape_string($koneksi, $_POST['keterangan']));
 
-    mysqli_query($koneksi, "INSERT INTO maintenance ( cabang, type_maintenance , jenis_maintenance, unit, pic_request, tgl_request, problem, tgl_solved, pic_proses, keterangan) 
-    VALUES( '$cabang', '$type_maintenance', '$jenis_maintenance', '$unit', '$pic_request','$tgl_request','$problem','$tgl_solved','$pic_proses','$keterangan')");
+    mysqli_query($koneksi, "INSERT INTO maintenance ( cabang, type_maintenance , jenis_maintenance, unit, pic_request, tgl_request, jam_request, problem, tgl_solved, jam_solved, pic_proses, keterangan) 
+    VALUES( '$cabang', '$type_maintenance', '$jenis_maintenance', '$unit', '$pic_request','$tgl_request','$jam_request','$problem','$tgl_solved','$jam_solved','$pic_proses','$keterangan')");
     showSweetAlert('success', 'Sukses', $pesan_ok, '#3085d6', '../../public/views/maintenance/index.php');
 } else if (isset($_POST['edit_maintenance'])) {
     $id = $_POST['id_maintenance'];
