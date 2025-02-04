@@ -10,7 +10,7 @@ include '../../../app/Models/Report_models.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Home</h3>
+                    <h3 class="mb-0">Data Medan</h3>
                 </div>
                 <div class="col-sm-6">
                 </div>
