@@ -182,7 +182,7 @@ include '../../../app/Models/Report_models.php';
                     <div class="small-box text-bg-secondary">
                         <div class="inner">
                             <h3><?= $maintenance_bulan_ini ?></h3>
-                            <p>REPORT HARI INI</p>
+                            <p>REPORT BULAN INI</p>
                         </div>
                         <svg
                             class="small-box-icon"
