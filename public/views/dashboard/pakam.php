@@ -106,7 +106,7 @@ include '../../../app/Models/Report_models.php';
                                     <tbody>
                                         <?php
                                         $no = 0;
-                                        $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter WHERE status != 'TUTUP' AND cabang_counter = 'KCU MEDAN' ORDER BY id_counter DESC") or die(mysqli_error($koneksi));
+                                        $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter WHERE status != 'TUTUP' AND cabang_counter = 'CABANAG LUBUK PAKAM' ORDER BY id_counter DESC") or die(mysqli_error($koneksi));
                                         $result = array();
                                         while ($data = mysqli_fetch_array($sql)) {
                                             $result[] = $data;
