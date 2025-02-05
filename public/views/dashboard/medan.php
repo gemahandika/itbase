@@ -2,7 +2,7 @@
 session_name("itbase_session");
 session_start();
 include '../../header.php';
-include '../../../app/Models/Counter_models.php';
+include '../../../app/Models/Dashboard_models/Medan_models.php';
 include '../../../app/Models/Report_models.php';
 ?>
 <main class="app-main">
@@ -13,190 +13,170 @@ include '../../../app/Models/Report_models.php';
                     <h3 class="mb-0">Data Medan</h3>
                 </div>
                 <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-end">
+                    </ol>
                 </div>
             </div>
         </div>
     </div>
     <div class="app-content">
         <div class="container-fluid">
-
             <?php
             include 'button_cabang.php';
             ?>
-
             <div class="row">
-                <div class="col-lg-3 col-6">
-                    <div class="small-box text-bg-primary">
-                        <div class="inner">
-                            <h3><?= $total_jumlah ?></h3>
-                            <p>ALL AGEN</p>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon text-bg-primary shadow-sm">
+                            <i class="bi bi-people-fill"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Agen</span>
+                            <span class="info-box-number">
+                                <?= $agen_medan ?>
+                            </span>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"></path>
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 1-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 2-->
-                    <div class="small-box text-bg-success">
-                        <div class="inner">
-                            <h3><?= $agen_mes1 ?></h3>
-                            <p>AGEN MES 1</p>
-                        </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 2-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 3-->
-                    <div class="small-box text-bg-warning text-white">
-                        <div class="inner">
-                            <h3><?= $agen_mes2 ?></h3>
-                            <p>AGEN MES 2</p>
-                        </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover text-white">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
-                    <div class="small-box text-bg-info text-white">
-                        <div class="inner">
-                            <h3><?= $data_bulan_ini ?></h3>
-                            <p>AGEN BARU</p>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon text-bg-info shadow-sm">
+                            <i class="bi bi-hospital-fill"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total KCU</span>
+                            <span class="info-box-number">
+                                <?= $kp_medan ?>
+                            </span>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon text-bg-success shadow-sm">
+                            <i class="bi bi-pc-display"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Online</span>
+                            <span class="info-box-number">
+                                <?= $online_medan ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon text-bg-danger shadow-sm">
+                            <i class="bi bi-pencil-fill"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Offline</span>
+                            <span class="info-box-number">
+                                <?= $offline_medan ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-6">
-                    <div class="small-box text-bg-primary">
-                        <div class="inner">
-                            <h3><?= $total_kp ?></h3>
-                            <p>ALL KP</p>
+                <div class="col-md-8">
+                    <div class="card">
+
+                        <div class="card-body p-2">
+                            <div class="table-responsive">
+                                <table id="example" class="display" style="width:100%">
+                                    <thead>
+                                        <tr class="btn-secondary">
+                                            <th class="small text-center">NO</th>
+                                            <th class="small text-center">NAMA AGEN / KP</th>
+                                            <th class="small text-center">CUST ID</th>
+                                            <th class="small text-center">ORIGIN</th>
+                                            <th class="small text-center">PIC</th>
+                                            <th class="small text-center">PHONE</th>
+                                            <th class="small text-center">SYSTEM</th>
+                                            <th class="small text-center">PRINTER</th>
+                                            <th class="small text-center">DATEKEY</th>
+                                            <th class="small text-center">STATUS</th>
+                                            <th class="small text-center">ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 0;
+                                        $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter WHERE status != 'TUTUP' AND cabang_counter = 'KCU MEDAN' ORDER BY id_counter DESC") or die(mysqli_error($koneksi));
+                                        $result = array();
+                                        while ($data = mysqli_fetch_array($sql)) {
+                                            $result[] = $data;
+                                        }
+                                        foreach ($result as $data) {
+                                            $no++;
+                                        ?>
+                                            <tr>
+                                                <td class="small text-center"><?= $no; ?></td>
+                                                <td class="small text-center"><?= $data['nama_counter'] ?></td>
+                                                <td class="small text-center"><?= $data['cust_id'] ?></td>
+                                                <td class="small text-center"><?= $data['origin'] ?></td>
+                                                <td class="small text-center"><?= $data['pic'] ?></td>
+                                                <td class="small text-center"><?= $data['phone'] ?></td>
+                                                <td class="small text-center"><?= $data['sistem'] ?></td>
+                                                <td class="small text-center"><?= $data['printer'] ?></td>
+                                                <td class="small text-center"><?= $data['datekey'] ?></td>
+                                                <td class="small text-center"><?= $data['status'] ?></td>
+                                                <td class="small text-center d-flex">
+                                                    <?php if (has_access($allowed_super_admin)) { ?>
+                                                        <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-info btn-sm mr-2">Hapus</a>
+                                                    <?php } ?>
+                                                    <form action="edit.php" method="post" style="display:inline;">
+                                                        <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
+                                                        <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
+                                                            <i class="bi bi-pencil"></i> Edit
+                                                        </button>
+                                                    </form>
+                                                    <form action="counter_tutup.php" method="post" style="display:inline;">
+                                                        <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
+                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                            <i class="bi bi-lock"></i> Tutup
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"></path>
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
-                    <div class="small-box text-bg-danger">
-                        <div class="inner">
-                            <h3><?= $agen_tutup ?></h3>
-                            <p>AGEN TUTUP</p>
+                <div class="col-md-4">
+                    <!-- Info Boxes Style 2 -->
+                    <div class="info-box mb-3 text-bg-success">
+                        <span class="info-box-icon"> <i class="bi bi-pc-display"></i> </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">HYBRID</span>
+                            <span class="info-box-number"><?= $hybrid_medan ?></span>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
+                        <!-- /.info-box-content -->
                     </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <div class="small-box text-bg-secondary">
-                        <div class="inner">
-                            <h3><?= $maintenance_bulan_ini ?></h3>
-                            <p>REPORT HARI INI</p>
+                    <!-- /.info-box -->
+                    <div class="info-box mb-3 text-bg-warning">
+                        <span class="info-box-icon"> <i class="bi bi-phone-fill"></i> </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">MEC</span>
+                            <span class="info-box-number"><?= $mec_medan ?></span>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 11h8v2H8v-2zm0 4h8v2H8v-2z" />
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            Detail Data <i class="bi bi-link-45deg"></i>
-                        </a>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <canvas id="donutChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,203 +221,48 @@ include '../../../app/Models/Report_models.php';
         }
     });
 </script>
-<!--end::OverlayScrollbars Configure-->
-<!-- OPTIONAL SCRIPTS -->
-<!-- sortablejs -->
-<script
-    src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"
-    integrity="sha256-ipiJrswvAR4VAx/th+6zWsdeYmVae0iJuiR+6OqHJHQ="
-    crossorigin="anonymous"></script>
-<!-- sortablejs -->
-<script>
-    const connectedSortables = document.querySelectorAll('.connectedSortable');
-    connectedSortables.forEach((connectedSortable) => {
-        let sortable = new Sortable(connectedSortable, {
-            group: 'shared',
-            handle: '.card-header',
-        });
-    });
-
-    const cardHeaders = document.querySelectorAll('.connectedSortable .card-header');
-    cardHeaders.forEach((cardHeader) => {
-        cardHeader.style.cursor = 'move';
-    });
-</script>
-<!-- apexcharts -->
 <script
     src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
     integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
     crossorigin="anonymous"></script>
-<!-- ChartJS -->
 <script>
-    // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-    // IT'S ALL JUST JUNK FOR DEMO
-    // ++++++++++++++++++++++++++++++++++++++++++
+    // Ambil data dari PHP
+    const labels = <?php echo $labels_json; ?>;
+    const data = <?php echo $data_json; ?>;
 
-    const sales_chart_options = {
-        series: [{
-                name: 'Digital Goods',
-                data: [28, 48, 40, 19, 86, 27, 90],
-            },
-            {
-                name: 'Electronics',
-                data: [65, 59, 80, 81, 56, 55, 40],
-            },
-        ],
-        chart: {
-            height: 300,
-            type: 'area',
-            toolbar: {
-                show: false,
-            },
+    // Buat Donut Chart dengan Chart.js
+    const ctx = document.getElementById('donutChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Jumlah Agen HYBRID & MEC',
+                data: data,
+                backgroundColor: ['#36A2EB', '#FF6384'], // Warna untuk HYBRID dan MEC
+                borderWidth: 1
+            }]
         },
-        legend: {
-            show: false,
-        },
-        colors: ['#0d6efd', '#20c997'],
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            curve: 'smooth',
-        },
-        xaxis: {
-            type: 'datetime',
-            categories: [
-                '2023-01-01',
-                '2023-02-01',
-                '2023-03-01',
-                '2023-04-01',
-                '2023-05-01',
-                '2023-06-01',
-                '2023-07-01',
-            ],
-        },
-        tooltip: {
-            x: {
-                format: 'MMMM yyyy',
-            },
-        },
-    };
-
-    const sales_chart = new ApexCharts(
-        document.querySelector('#revenue-chart'),
-        sales_chart_options,
-    );
-    sales_chart.render();
-</script>
-<!-- jsvectormap -->
-<script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
-    integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y="
-    crossorigin="anonymous"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
-    integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY="
-    crossorigin="anonymous"></script>
-<!-- jsvectormap -->
-<script>
-    const visitorsData = {
-        US: 398, // USA
-        SA: 400, // Saudi Arabia
-        CA: 1000, // Canada
-        DE: 500, // Germany
-        FR: 760, // France
-        CN: 300, // China
-        AU: 700, // Australia
-        BR: 600, // Brazil
-        IN: 800, // India
-        GB: 320, // Great Britain
-        RU: 3000, // Russia
-    };
-
-    // World map by jsVectorMap
-    const map = new jsVectorMap({
-        selector: '#world-map',
-        map: 'world',
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
     });
-
-    // Sparkline charts
-    const option_sparkline1 = {
-        series: [{
-            data: [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021],
-        }, ],
-        chart: {
-            type: 'area',
-            height: 50,
-            sparkline: {
-                enabled: true,
-            },
-        },
-        stroke: {
-            curve: 'straight',
-        },
-        fill: {
-            opacity: 0.3,
-        },
-        yaxis: {
-            min: 0,
-        },
-        colors: ['#DCE6EC'],
-    };
-
-    const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
-    sparkline1.render();
-
-    const option_sparkline2 = {
-        series: [{
-            data: [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921],
-        }, ],
-        chart: {
-            type: 'area',
-            height: 50,
-            sparkline: {
-                enabled: true,
-            },
-        },
-        stroke: {
-            curve: 'straight',
-        },
-        fill: {
-            opacity: 0.3,
-        },
-        yaxis: {
-            min: 0,
-        },
-        colors: ['#DCE6EC'],
-    };
-
-    const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
-    sparkline2.render();
-
-    const option_sparkline3 = {
-        series: [{
-            data: [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21],
-        }, ],
-        chart: {
-            type: 'area',
-            height: 50,
-            sparkline: {
-                enabled: true,
-            },
-        },
-        stroke: {
-            curve: 'straight',
-        },
-        fill: {
-            opacity: 0.3,
-        },
-        yaxis: {
-            min: 0,
-        },
-        colors: ['#DCE6EC'],
-    };
-
-    const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
-    sparkline3.render();
 </script>
-<!--end::Script-->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script>
+    new DataTable('#example', {
+        paging: false,
+        scrollCollapse: true,
+        scrollY: '400px'
+    });
+</script>
+
 </body>
-<!--end::Body-->
 
 </html>

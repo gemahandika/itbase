@@ -17,7 +17,7 @@ include '../../../app/Config/koneksi.php';
                     <div class="form-group" style="font-size: 14px;">
                         <label for="recipient-name" class="col-form-label"><b>CABANG <span class="text-danger"> *</span></b></label>
                         <select class="form-select" id="cabang" name="cabang" aria-label="Default select example" required>
-                            <option value="">- Pilih Cabang -</option>
+
                             <?php
                             $no = 1;
                             $sql = mysqli_query($koneksi, "SELECT * FROM tb_cabang") or die(mysqli_error($koneksi));
@@ -54,7 +54,7 @@ include '../../../app/Config/koneksi.php';
                     <div class="form-group" style="font-size: 14px;">
                         <label for="unit" class="col-form-label"><b>UNIT <span class="text-danger"> *</span></b></label>
                         <select class="form-select" id="unit" name="unit" aria-label="Default select example" required>
-                            <option value="">- Pilih Unit -</option>
+
                             <?php
                             $no = 1;
                             $sql = mysqli_query($koneksi, "SELECT * FROM tb_unit") or die(mysqli_error($koneksi));
@@ -64,7 +64,7 @@ include '../../../app/Config/koneksi.php';
                             }
                             foreach ($result as $data) {
                             ?>
-                                <option value="<?= $data['nama_unit'] ?>"><?= $no++; ?>. <?= $data['nama_unit'] ?></option>
+                                <option value="<?= $data['nama_unit'] ?>"> <?= $data['nama_unit'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
