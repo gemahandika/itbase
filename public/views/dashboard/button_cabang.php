@@ -21,7 +21,7 @@
                     <a href="sergei.php" class="btn btn-outline-primary mb-2 mr-2">PAYAGELI</a>
                     <a href="sergei.php" class="btn btn-outline-primary mb-2 mr-2">SERGEI</a>
                     <a href="binjai.php" class="btn btn-outline-primary mb-2 mr-2">BINJAI</a>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">LANGKAT</button>
+                    <a href="langkat.php" class="btn btn-outline-primary mb-2 mr-2">LANGKAT</a>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">KARO</button>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">DAIRI</button>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">PAK PAK BHARAT</button>
