@@ -2,7 +2,7 @@
 session_name("itbase_session");
 session_start();
 include '../../header.php';
-include '../../../app/Models/Dashboard_models/Binjai_models.php';
+include '../../../app/Models/Dashboard_models/Langkat_models.php';
 include '../../../app/Models/Report_models.php';
 ?>
 <main class="app-main">
