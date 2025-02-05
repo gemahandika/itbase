@@ -18,7 +18,7 @@
                     <a href="home.php" class="btn btn-outline-primary mb-2 mr-2">HOME</a>
                     <a href="medan.php" class="btn btn-outline-primary mb-2 mr-2">MEDAN</a>
                     <a href="pakam.php" class="btn btn-outline-primary mb-2 mr-2">PAKAM</a>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">PAYAGELI</button>
+                    <a href="sergei.php" class="btn btn-outline-primary mb-2 mr-2">PAYAGELI</a>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">SERGEI</button>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">BINJAI</button>
                     <button type="button" class="btn btn-outline-primary mb-2 mr-2">LANGKAT</button>
