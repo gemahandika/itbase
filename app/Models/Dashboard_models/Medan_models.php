@@ -1,6 +1,6 @@
 <?php
 // Query pertama: Menghitung total jumlah AGEN
-$sql1 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status != 'KP' AND cabang_counter = 'KCU MEDAN'";
+$sql1 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN'";
 $result1 = $koneksi->query($sql1);
 $total_jumlah = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result1->num_rows > 0) {
