@@ -1,6 +1,6 @@
 <?php
 // Query pertama: Menghitung total jumlah AGEN
-$sql1 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN'";
+$sql1 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = '$cabang'";
 $result1 = $koneksi->query($sql1);
 $total_jumlah = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result1->num_rows > 0) {
@@ -10,7 +10,7 @@ if ($result1->num_rows > 0) {
 }
 
 // Menghitung total jumlah KP
-$sql2 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'KP' AND cabang_counter = 'KCU MEDAN'";
+$sql2 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'KP' AND cabang_counter = '$cabang'";
 $result2 = $koneksi->query($sql2);
 $total_kp = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result2->num_rows > 0) {
@@ -20,7 +20,7 @@ if ($result2->num_rows > 0) {
 }
 
 // Menghitung total jumlah ONLINE
-$sql3 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN' AND sistem != 'OFFLINE'";
+$sql3 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = '$cabang' AND sistem != 'OFFLINE'";
 $result3 = $koneksi->query($sql3);
 $total_kp = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result3->num_rows > 0) {
@@ -30,7 +30,7 @@ if ($result3->num_rows > 0) {
 }
 
 // Menghitung total jumlah OFFLINE
-$sql4 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN' AND sistem = 'OFFLINE'";
+$sql4 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = '$cabang' AND sistem = 'OFFLINE'";
 $result4 = $koneksi->query($sql4);
 $total_kp = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result4->num_rows > 0) {
@@ -40,7 +40,7 @@ if ($result4->num_rows > 0) {
 }
 
 // Menghitung total jumlah KHUSU HYBRID
-$sql5 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN' AND sistem = 'HYBRID'";
+$sql5 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = '$cabang' AND sistem = 'HYBRID'";
 $result5 = $koneksi->query($sql5);
 $total_kp = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result5->num_rows > 0) {
@@ -50,7 +50,7 @@ if ($result5->num_rows > 0) {
 }
 
 // Menghitung total jumlah KHUSU HYBRID
-$sql6 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = 'KCU MEDAN' AND sistem = 'MEC'";
+$sql6 = "SELECT COUNT(*) AS total_jumlah FROM tb_counter WHERE status = 'AGEN' AND cabang_counter = '$cabang' AND sistem = 'MEC'";
 $result6 = $koneksi->query($sql6);
 $total_kp = 0; // Variabel untuk menyimpan hasil dari query pertama
 if ($result6->num_rows > 0) {

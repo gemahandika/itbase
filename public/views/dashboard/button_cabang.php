@@ -1,6 +1,7 @@
 <!-- Tambahkan jQuery jika belum ada -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <div class="row">
     <div class="col-12">
         <div class="card mb-2">
@@ -15,26 +16,42 @@
             </button>
             <div class="card-body" style="display: none;">
                 <div class="btn-group mb-2 flex-wrap d-flex" role="group">
-                    <a href="home.php" class="btn btn-outline-primary mb-2 mr-2">HOME</a>
-                    <a href="medan.php" class="btn btn-outline-primary mb-2 mr-2">MEDAN</a>
-                    <a href="pakam.php" class="btn btn-outline-primary mb-2 mr-2">PAKAM</a>
-                    <a href="sergei.php" class="btn btn-outline-primary mb-2 mr-2">PAYAGELI</a>
-                    <a href="sergei.php" class="btn btn-outline-primary mb-2 mr-2">SERGEI</a>
-                    <a href="binjai.php" class="btn btn-outline-primary mb-2 mr-2">BINJAI</a>
-                    <a href="langkat.php" class="btn btn-outline-primary mb-2 mr-2">LANGKAT</a>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">KARO</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">DAIRI</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">PAK PAK BHARAT</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">SAMOSIR</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">TEBING</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">SIANTAR</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">SIMALUNGUN</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">BATUBARA</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">ASAHAN</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">TJ. BALAI</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">AEKKANOPAN</button>
-                    <button type="button" class="btn btn-outline-primary mb-2 mr-2">LABUHAN BATU</button>
-                    <button type="button" class="btn btn-outline-primary mb-2">KOTA PINANG</button>
+
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="1">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">MEDAN</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="2">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">PAKAM</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="3">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">PAYAGELI</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="4">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">SERGEI</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="5">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">BINJAI</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="6">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">LANGKAT</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="7">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">KARO</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="8">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">DAIRI</button>
+                    </form>
+
+
+
                 </div>
             </div>
         </div>
