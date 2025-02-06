@@ -24,8 +24,6 @@ if ($id_cabang) {
     }
 }
 
-echo "ID Cabang: " . htmlspecialchars($id_cabang) . "<br>";
-echo "Nama Cabang: " . htmlspecialchars($cabang);
 include '../../../app/Models/Dashboard_models.php';
 ?>
 <main class="app-main">
@@ -170,7 +168,7 @@ include '../../../app/Models/Dashboard_models.php';
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="report-it">
-                                                                    <input type="text" name="id_cabang" value="<?= $id_cabang ?>">
+                                                                    <input type="hidden" name="id_cabang" value="<?= $id_cabang ?>">
                                                                     <input type="hidden" name="id_counter" value="<?= $data['id_counter'] ?>">
                                                                     <div class="row">
                                                                         <div class="col-md-6">
