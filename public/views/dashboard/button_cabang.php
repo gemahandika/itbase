@@ -16,7 +16,7 @@
             </button>
             <div class="card-body" style="display: none;">
                 <div class="btn-group mb-2 flex-wrap d-flex" role="group">
-
+                    <a href="home.php" class="btn btn-outline-primary mb-2 mr-2">HOME</a>
                     <form action="index.php" method="post">
                         <input type="hidden" name="id" value="1">
                         <button type="submit" class="btn btn-outline-primary mb-2 mr-2">MEDAN</button>
@@ -49,9 +49,50 @@
                         <input type="hidden" name="id" value="8">
                         <button type="submit" class="btn btn-outline-primary mb-2 mr-2">DAIRI</button>
                     </form>
-
-
-
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="9">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">PAK PAK BHARAT</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="10">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">SAMOSIR</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="11">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">TEBING</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="12">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">SIANTAR</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="13">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">SIMALUNGUN</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="14">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">BATUBARA</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="15">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">ASAHAN</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="16">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">TJ. BALAI</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="17">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">LABUHAN NATU UTARA</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="18">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">LABUHAN BATU</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="id" value="19">
+                        <button type="submit" class="btn btn-outline-primary mb-2 mr-2">LABUHAN BATU SELATAN</button>
+                    </form>
                 </div>
             </div>
         </div>
