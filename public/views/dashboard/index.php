@@ -272,7 +272,6 @@ include '../../../app/Models/Dashboard_models.php';
                                                     </form>
                                                 </div>
                                             </div>
-
                                         <?php } ?>
                                     </tbody>
                                 </table>
