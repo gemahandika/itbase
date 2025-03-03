@@ -45,7 +45,7 @@ include '../../header.php';
                                     <th class="small text-center">CUST ID</th>
                                     <th class="small text-center">NAMA AGEN</th>
                                     <th class="small text-center">HYBRID</th>
-                                    <!-- <th class="small text-center">ACTION</th> -->
+                                    <th class="small text-center">ACTION</th>
                                 </tr>
                             </thead>
 
@@ -71,23 +71,17 @@ include '../../header.php';
                                         <td class="small text-center"><?= $data['cust_id'] ?></td>
                                         <td class="small text-center"><?= $data['nama_agen'] ?></td>
                                         <td class="small text-center"><?= $data['hybrid'] ?></td>
-                                        <!-- <td class="small text-center d-flex">
-                                        <?php if (has_access($allowed_super_admin)) { ?>
-                                            <a href="delete.php?id=<?= $data['id_counter'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
-                                        <?php } ?>
-                                        <form action="edit.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
-                                            <button type="submit" class="btn btn-primary btn-sm text-white mr-2">
-                                                <i class="bi bi-pencil"></i> Edit
-                                            </button>
-                                        </form>
-                                        <form action="counter_tutup.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="bi bi-lock"></i> Tutup
-                                            </button>
-                                        </form>
-                                    </td> -->
+                                        <td class="small text-center d-flex">
+                                            <div class="d-flex justify-content-center align-items-center mt-3">
+                                                <form action="edit.php" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="<?= $data['id_hybrid'] ?>">
+                                                    <button type="submit" class="btn btn-info btn-sm text-white mr-2">
+                                                        <i class="bi bi-pencil"></i> Edit
+                                                    </button>
+                                                </form>
+                                                <a href="delete.php?id=<?= $data['id_hybrid'] ?>" class="btn btn-secondary btn-sm mr-2"> <i class="bi bi-trash"></i>Hapus</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
