@@ -29,6 +29,7 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                             <thead>
                                 <tr>
                                     <th class="small text-center">NO</th>
+                                    <th class="small text-center">ADD USER</th>
                                     <th class="small text-center">CABANG</th>
                                     <th class="small text-center">NAMA AGEN / KP</th>
                                     <th class="small text-center">CUST ID</th>
@@ -55,6 +56,14 @@ $cabang_pilihan = isset($_GET['sistem']) ? urldecode($_GET['sistem']) : '';
                                 ?>
                                     <tr>
                                         <td class="small text-center"><?= $no; ?></td>
+                                        <td class="small text-center">
+                                            <form action="add_user.php" method="post" style="display:inline;">
+                                                <input type="hidden" name="id" value="<?= $data['id_counter'] ?>">
+                                                <button type="submit" class="btn btn-info btn-sm text-white mr-2">
+                                                    <i class="bi bi-plus"></i> ADD USER
+                                                </button>
+                                            </form>
+                                        </td>
                                         <td class="small text-center"><?= $data['cabang_counter'] ?></td>
                                         <td class="small text-center"><?= $data['nama_counter'] ?></td>
                                         <td class="small text-center"><?= $data['cust_id'] ?></td>
