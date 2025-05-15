@@ -101,6 +101,7 @@ include 'modal_userapp.php'
                                                         <label for="role"><strong>ROLE</strong></label>
                                                         <select class="form-control form-control-sm" type="text" name="role" required>
                                                             <option value="agen">AGEN</option>
+                                                            <option value="sales">SALES</option>
                                                             <option value="admin">ADMIN</option>
                                                         </select>
                                                     </div>
