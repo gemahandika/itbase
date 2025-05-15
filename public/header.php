@@ -101,7 +101,7 @@ $time = date("H:i");
             <div class="sidebar-wrapper">
                 <nav class="mt-2">
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                        <?php if (in_array("super_admin", $_SESSION['admin_akses'])) { ?>
+                        <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
                             <li class="nav-item">
                                 <a href="../dashboard/home.php" class="nav-link ">
                                     <i class="nav-icon bi bi-speedometer"></i>
@@ -119,7 +119,7 @@ $time = date("H:i");
                                 <p>Cancel Resi</p>
                             </a>
                         </li>
-                        <?php if (in_array("super_admin", $_SESSION['admin_akses'])) { ?>
+                        <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
                             <li class="nav-item">
                                 <a href="../maintenance/index.php" class="nav-link ">
                                     <i class="nav-icon bi bi-tools"></i>
