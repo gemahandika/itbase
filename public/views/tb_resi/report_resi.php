@@ -53,7 +53,7 @@ $end_date = $_GET['end_date'] ?? '';
                         <h6>TABLE REQUEST RESI</h6>
                         <table id="example" class="display" style="width:100%">
                             <thead>
-                                <tr class="btn-info">
+                                <tr class="btn-primary">
                                     <th class="small text-center">NO</th>
                                     <th class="small text-center">NOMOR RESI</th>
                                     <th class="small text-center">KETERANGAN</th>
@@ -62,7 +62,9 @@ $end_date = $_GET['end_date'] ?? '';
                                     <th class="small text-center">TANGGAL REQUEEST CANCEL</th>
                                     <th class="small text-center">TANGGAL PROSES CANCEL</th>
                                     <th class="small text-center">STATUS</th>
-                                    <th class="small text-center">ACTION</th>
+                                    <?php if (has_access($allowed_super_admin)) { ?>
+                                        <th class="small text-center">ACTION</th>
+                                    <?php } ?>
 
                                 </tr>
                             </thead>
@@ -77,22 +79,20 @@ $end_date = $_GET['end_date'] ?? '';
                                     $start_datetime = $start_date . ' 00:00:00';
                                     $end_datetime = $end_date . ' 23:59:59';
                                     if (in_array("super_admin", $akses) || in_array("admin", $akses) || in_array("sales", $akses)) {
-                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' AND tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
+                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
                                         $stmt->bind_param("ss", $start_datetime, $end_datetime);
                                     } else {
-                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' AND user_id = ? AND tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
+                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE user_id = ? AND tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
                                         $stmt->bind_param("sss", $user1, $start_datetime, $end_datetime);
                                     }
                                 } else {
                                     if (in_array("super_admin", $akses) || in_array("admin", $akses) || in_array("sales", $akses)) {
-                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' ORDER BY id_resi DESC");
+                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi  ORDER BY id_resi DESC");
                                     } else {
-                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' AND user_id = ? ORDER BY id_resi DESC");
+                                        $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE user_id = ? ORDER BY id_resi DESC");
                                         $stmt->bind_param("s", $user1);
                                     }
                                 }
-
-
 
                                 $stmt->execute();
                                 $result = $stmt->get_result();
@@ -109,21 +109,12 @@ $end_date = $_GET['end_date'] ?? '';
                                         <td class="small text-center"><?= $data['tgl_req'] ?></td>
                                         <td class="small text-center"><?= $data['tgl_proses'] ?></td>
                                         <td class="small text-center"><?= $data['status'] ?></td>
+                                        <?php if (has_access($allowed_super_admin)) { ?>
+                                            <td class="small text-center d-flex">
 
-                                        <td class="small text-center d-flex">
-                                            <?php if (has_access($allowed_super_admin)) { ?>
                                                 <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
-                                            <?php } ?>
-                                            <button
-                                                type="button"
-                                                class="btn btn-primary btn-sm openModalButton"
-                                                data-id_resi="<?= $data['id_resi']; ?>"
-                                                data-mode="resign"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editModal">
-                                                Edit
-                                            </button>
-                                        </td>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>

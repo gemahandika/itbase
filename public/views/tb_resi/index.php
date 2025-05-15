@@ -13,7 +13,7 @@ $datetime = date('Y-m-d H:i');
         <div class="container-fluid">
             <div class="row" style="border-bottom: 2px solid #000; padding-bottom: 5px;">
                 <div class="col-sm-6">
-                    <h5 class="mb-0">DATA RESI CANCEL</h5>
+                    <h5 class="mb-0">FORM RESI CANCEL</h5>
                 </div>
             </div>
         </div>
@@ -43,15 +43,13 @@ $datetime = date('Y-m-d H:i');
 
                         <!-- Tombol Simpan -->
                         <div class="col-md-2 mb-3">
-                            <button type="submit" class="btn btn-primary w-100" name="add_resi">Proses</button>
+                            <button type="submit" class="btn btn-info w-100" name="add_resi">Proses</button>
                         </div>
 
-                        <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("sales", $_SESSION['admin_akses'])) { ?>
-                            <!-- Tombol Download -->
-                            <div class="col-md-2 mb-3">
-                                <a href="report_resi.php" class="btn btn-secondary w-100">Report</a>
-                            </div>
-                        <?php } ?>
+                        <!-- Tombol Download -->
+                        <div class="col-md-2 mb-3">
+                            <a href="report_resi.php" class="btn btn-secondary w-100">Report</a>
+                        </div>
                     </div>
                 </form>
             </div>

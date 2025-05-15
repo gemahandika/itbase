@@ -8,10 +8,10 @@ $end_date = $_GET['filter_end'] ?? null;
 if ($start_date && $end_date) {
     $start_datetime = $start_date . ' 00:00:00';
     $end_datetime = $end_date . ' 23:59:59';
-    $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' AND tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
+    $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE tgl_req BETWEEN ? AND ? ORDER BY id_resi DESC");
     $stmt->bind_param("ss", $start_datetime, $end_datetime);
 } else {
-    $stmt = $koneksi->prepare("SELECT * FROM tb_resi WHERE status = 'OPEN' ORDER BY id_resi DESC");
+    $stmt = $koneksi->prepare("SELECT * FROM tb_resi ORDER BY id_resi DESC");
 }
 
 $stmt->execute();
