@@ -2,7 +2,7 @@
 session_name("itbase_session");
 session_start();
 include '../../header.php';
-
+include 'modal_userapp.php';
 ?>
 <!--begin::App Main-->
 <main class="app-main">
@@ -86,22 +86,14 @@ include '../../header.php';
                     </div>
                 </div>
             </div>
-            <!--end::Row-->
         </div>
-        <!--end::Container-->
     </div>
-    <!--end::App Content-->
 </main>
-<!--end::App Main-->
-<!--begin::Footer-->
 <footer class="app-footer">
-    <!--begin::To the end-->
     <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <!--end::To the end-->
-    <!--begin::Copyright-->
     <strong>
-        Copyright &copy; 2014-2024&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        Copyright &copy; 2024&nbsp;
+        <a href="#" class="text-decoration-none">IT Dev. Jne Medan</a>.
     </strong>
     All rights reserved.
     <!--end::Copyright-->

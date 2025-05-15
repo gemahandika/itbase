@@ -90,7 +90,7 @@ include 'modal_userapp.php'
                                                         <label for="username"><strong>USER ID :</strong></label><br>
                                                         <input class="form-control form-control-sm" type="text" name="username" value="<?= $data['username'] ?>" required readonly>
                                                     </div>
-                                                    <input type="text" name="password" value="<?= $data['password'] ?>" required readonly>
+                                                    <input type="hidden" name="password" value="<?= $data['password'] ?>" required readonly>
 
                                                     <div class="label-1 mt-4">
                                                         <label for="cabang"><strong>CABANG :</strong></label><br>
@@ -100,7 +100,7 @@ include 'modal_userapp.php'
                                                     <div class="label-1 mt-4">
                                                         <label for="role"><strong>ROLE</strong></label>
                                                         <select class="form-control form-control-sm" type="text" name="role" required>
-                                                            <option value="user">USER</option>
+                                                            <option value="agen">AGEN</option>
                                                             <option value="admin">ADMIN</option>
                                                         </select>
                                                     </div>
