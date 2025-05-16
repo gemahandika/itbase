@@ -34,21 +34,37 @@ $datetime = date('Y-m-d H:i');
                             <label for="keterangan" class="form-label">Keterangan Cancel</label>
                             <input type="text" class="form-control" id="keterangan" name="keterangan" required>
                         </div>
+                        <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses']) || in_array("sales", $_SESSION['admin_akses'])) { ?>
+                            <div class="col-md-4 mb-4">
+                                <label for="nama_agen" class="form-label">Nama Agen</label>
+                                <select type="text" class="form-select select2" id="nama_agen" name="nama_agen">
+                                    <option value="">-- Pilih Data --</option>
+                                    <?php
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' AND status = 'AGEN' ORDER BY nama_user ASC") or die(mysqli_error($koneksi));
+                                    $result = array();
+                                    while ($data = mysqli_fetch_array($sql)) {
+                                        $result[] = $data;
+                                    }
+                                    foreach ($result as $data) {
+                                    ?>
+                                        <option value="<?= $data['nama_user'] ?>"><?= $data['nama_user'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        <?php } ?>
 
                         <input type="hidden" name="user_id" value="<?= $user1 ?>" readonly>
                         <input type="hidden" name="status" value="OPEN" readonly>
-                        <input type="hidden" name="nama_agen" value="<?= $nama ?>" readonly>
+                        <?php if (in_array("agen", $_SESSION['admin_akses'])) { ?>
+                            <input type="hidden" name="nama_agen" value="<?= $nama ?>" readonly>
+                        <?php } ?>
                         <!-- Hidden Tanggal Request -->
                         <input type="hidden" name="tgl_req" value="<?= $datetime ?>" readonly>
 
                         <!-- Tombol Simpan -->
-                        <div class="col-md-2 mb-3">
-                            <button type="submit" class="btn btn-info w-100" name="add_resi">Proses</button>
-                        </div>
-
-                        <!-- Tombol Download -->
-                        <div class="col-md-2 mb-3">
-                            <a href="report_resi.php" class="btn btn-secondary w-100">Report</a>
+                        <div class="d-flex col-md-2 mb-3">
+                            <button type="submit" class="btn btn-info mr-2" name="add_resi">Proses</button>
+                            <a href="report_resi.php" class="btn btn-secondary">Report</a>
                         </div>
                     </div>
                 </form>
@@ -135,80 +151,4 @@ $datetime = date('Y-m-d H:i');
 </main>
 </div>
 
-<!-- OverlayScrollbars -->
-<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
-    integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ=" crossorigin="anonymous"></script>
-
-<!-- Popper.js for Bootstrap 5 -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
-<!-- Bootstrap 5 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
-<!-- AdminLTE -->
-<script src="../../../app/Asset/js/adminlte.js"></script>
-
-<!-- OverlayScrollbars Configuration -->
-<script>
-    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
-    const Default = {
-        scrollbarTheme: 'os-theme-light',
-        scrollbarAutoHide: 'leave',
-        scrollbarClickScroll: true,
-    };
-    document.addEventListener('DOMContentLoaded', function() {
-        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
-        if (sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== 'undefined') {
-            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
-                scrollbars: {
-                    theme: Default.scrollbarTheme,
-                    autoHide: Default.scrollbarAutoHide,
-                    clickScroll: Default.scrollbarClickScroll,
-                },
-            });
-        }
-    });
-</script>
-
-<!-- jQuery and DataTables -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable({
-            responsive: true,
-            scrollX: true
-        });
-        $('#example1').DataTable({
-            responsive: true,
-            scrollX: true
-        });
-    });
-</script>
-<script>
-    $(document).on('click', '.openModalButton', function() {
-        var id_resi = $(this).data('id_resi');
-        var mode = $(this).data('mode');
-
-        $.ajax({
-            url: 'edit_modal.php',
-            type: 'GET',
-            data: {
-                id_resi: id_resi,
-                mode: mode
-            },
-            success: function(response) {
-                $('#modalEditContent').html(response);
-            },
-            error: function(xhr, status, error) {
-                console.log("AJAX Error: " + xhr.responseText);
-            }
-        });
-    });
-</script>
-
-</body>
-
-</html>
+<?php include '../../footer.php'; ?>

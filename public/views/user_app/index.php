@@ -41,7 +41,7 @@ include 'modal_userapp.php';
                                 <tr class="btn-secondary">
                                     <th class="small text-center">NO</th>
                                     <th class="small text-center">NIP</th>
-                                    <th class="small text-center">NAMA USER</th>
+                                    <th class="small text-center">FULLNAME</th>
                                     <th class="small text-center">USERNAME</th>
                                     <th class="small text-center">STATUS</th>
                                     <th class="small text-center">ACTION</th>
@@ -50,8 +50,13 @@ include 'modal_userapp.php';
 
                             <tbody>
                                 <?php
+                                $akses = $_SESSION['admin_akses'] ?? [];
                                 $no = 0;
-                                $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' ORDER BY login_id ASC") or die(mysqli_error($koneksi));
+                                if (in_array("sales", $akses) || in_array("agen", $akses)) {
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' AND status = 'AGEN' ORDER BY login_id DESC") or die(mysqli_error($koneksi));
+                                } else {
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' ORDER BY login_id DESC") or die(mysqli_error($koneksi));
+                                }
                                 $result = array();
                                 while ($data = mysqli_fetch_array($sql)) {
                                     $result[] = $data;
@@ -89,20 +94,7 @@ include 'modal_userapp.php';
         </div>
     </div>
 </main>
-<footer class="app-footer">
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <strong>
-        Copyright &copy; 2024&nbsp;
-        <a href="#" class="text-decoration-none">IT Dev. Jne Medan</a>.
-    </strong>
-    All rights reserved.
-    <!--end::Copyright-->
-</footer>
-<!--end::Footer-->
 </div>
-<!--end::App Wrapper-->
-<!--begin::Script-->
-<!--begin::Third Party Plugin(OverlayScrollbars)-->
 <script
     src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
     integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="

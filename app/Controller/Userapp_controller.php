@@ -43,4 +43,12 @@ if (isset($_POST['add_user'])) {
     mysqli_query($koneksi, "UPDATE user SET nik='$nik', nama_user='$nama_user', cabang='$cabang', unit='$unit', 
     username='$username'WHERE login_id='$id'");
     showSweetAlert('success', 'Success', 'User Berhasil Update', '#3085d6', '../../public/views/user_app/index.php');
+} else if (isset($_POST['nonaktif_userapp'])) {
+    $id = $_POST['id'];
+    $password = $_POST['password'];
+    $status = $_POST['role'];
+    mysqli_query($koneksi, "UPDATE user SET password='$password', status='$status' 
+    WHERE login_id='$id'");
+    $sql = mysqli_query($koneksi, "DELETE FROM admin_akses WHERE login_id = '$id'") or die(mysqli_error($koneksi));
+    showSweetAlert('success', 'Success', 'User Berhasil Di Non Aktifkan', '#dc3545', '../../public/views/user_app/aktivasi.php');
 }

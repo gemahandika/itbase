@@ -78,7 +78,11 @@ include 'modal_userapp.php'
                                             <div class="modal-body">
                                                 <div class="report-it">
                                                     <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                                    <div class="label-1">
+                                                    <div class="label-1 ">
+                                                        <label for="cabang"><strong>CABANG :</strong></label><br>
+                                                        <input class="form-control form-control-sm" type="text" name="cabang" value="<?= $data['cabang'] ?>" required readonly>
+                                                    </div>
+                                                    <div class="label-1 mt-4">
                                                         <label for="nik"><strong>NIK :</strong></label><br>
                                                         <input class="form-control form-control-sm" type="text" name="nik" value="<?= $data['nik'] ?>" required readonly>
                                                     </div>
@@ -90,21 +94,25 @@ include 'modal_userapp.php'
                                                         <label for="username"><strong>USER ID :</strong></label><br>
                                                         <input class="form-control form-control-sm" type="text" name="username" value="<?= $data['username'] ?>" required readonly>
                                                     </div>
+
                                                     <input type="hidden" name="password" value="<?= $data['password'] ?>" required readonly>
 
-                                                    <div class="label-1 mt-4">
-                                                        <label for="cabang"><strong>CABANG :</strong></label><br>
-                                                        <input class="form-control form-control-sm" type="text" name="cabang" value="<?= $data['cabang'] ?>" required readonly>
-                                                    </div>
-                                                    <!-- <input type="hidden" name="status" value="NONAKTIF" required readonly> -->
-                                                    <div class="label-1 mt-4">
-                                                        <label for="role"><strong>ROLE</strong></label>
-                                                        <select class="form-control form-control-sm" type="text" name="role" required>
-                                                            <option value="agen">AGEN</option>
-                                                            <option value="sales">SALES</option>
-                                                            <option value="admin">ADMIN</option>
-                                                        </select>
-                                                    </div>
+                                                    <?php if (in_array("sales", $_SESSION['admin_akses'])) { ?>
+                                                        <div class="label-1 mt-4">
+                                                            <label for="role"><strong>ROLE</strong></label>
+                                                            <input class="form-control form-control-sm" type="text" name="role" value="agen" required readonly>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
+                                                        <div class="label-1 mt-4">
+                                                            <label for="role"><strong>ROLE</strong></label>
+                                                            <select class="form-control form-control-sm" type="text" name="role" required>
+                                                                <option value="AGEN">AGEN</option>
+                                                                <option value="SALES">SALES</option>
+                                                            </select>
+                                                        </div>
+                                                    <?php } ?>
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

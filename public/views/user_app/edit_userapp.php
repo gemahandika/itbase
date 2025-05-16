@@ -132,14 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </main>
-<footer class="app-footer">
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <strong>
-        Copyright &copy; 2014-2024&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-    </strong>
-    All rights reserved.
-</footer>
 </div>
 <script
     src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"

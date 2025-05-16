@@ -23,6 +23,7 @@ $time = date("H:i");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE v4 | Dashboard" />
     <meta name="author" content="ColorlibHQ" />
+    <link rel="shortcut icon" href="../../../app/Asset/img/jne/JNE.png">
     <meta
         name="description"
         content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS." />
@@ -61,6 +62,7 @@ $time = date("H:i");
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -73,8 +75,8 @@ $time = date("H:i");
                             <i class="bi bi-list"></i>
                         </a>
                     </li>
-                    <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+                    <!-- <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li> -->
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -161,7 +163,8 @@ $time = date("H:i");
                                     <p>Printer Label</p>
                                 </a>
                             </li>
-
+                        <?php } ?>
+                        <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses']) || in_array("sales", $_SESSION['admin_akses'])) { ?>
                             <li class="nav-item">
                                 <a href="../user_app/index.php" class="nav-link">
                                     <i class="nav-icon bi bi-gear"></i>

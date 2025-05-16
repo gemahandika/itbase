@@ -52,8 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <form class="needs-validation" novalidate method="post" action="../../../app/Controller/Userapp_controller.php">
                             <div class="card-body">
                                 <div class="row g-3">
-                                    <input type="hidden" name="login_id" value="<?= htmlspecialchars($data['login_id']) ?>" required />
-
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($data['login_id']) ?>" required />
+                                    <input type="hidden" name="role" value="NONAKTIF" required />
+                                    <input type="hidden" id="password" name="password" value="123" readonly>
                                     <div class="col-md-2">
                                         <label for="validationCustomUsername" class="form-label">NIK</label>
                                         <input type="text" class="form-control" id="validationCustomUsername" name="nik"
@@ -115,14 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </main>
-<footer class="app-footer">
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <strong>
-        Copyright &copy; 2014-2024&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-    </strong>
-    All rights reserved.
-</footer>
+
 </div>
 <script
     src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
