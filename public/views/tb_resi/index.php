@@ -40,14 +40,14 @@ $datetime = date('Y-m-d H:i');
                                 <select type="text" class="form-select select2" id="nama_agen" name="nama_agen">
                                     <option value="">-- Pilih Data --</option>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE status != 'NONAKTIF' AND status = 'AGEN' ORDER BY nama_user ASC") or die(mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter ORDER BY nama_counter ASC") or die(mysqli_error($koneksi));
                                     $result = array();
                                     while ($data = mysqli_fetch_array($sql)) {
                                         $result[] = $data;
                                     }
                                     foreach ($result as $data) {
                                     ?>
-                                        <option value="<?= $data['nama_user'] ?>"><?= $data['nama_user'] ?></option>
+                                        <option value="<?= $data['nama_counter'] ?>"><?= $data['nama_counter'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
