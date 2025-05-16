@@ -10,6 +10,9 @@ $dotenv->load();
 
 include '../../../app/Config/koneksi.php';  // Koneksi DB
 
+$status = '';
+$errorMessage = '';
+
 // Ambil semua no_resi yang status OPEN
 $sql = "SELECT no_resi FROM tb_resi WHERE status = 'OPEN'";
 $result = $koneksi->query($sql);
@@ -17,10 +20,13 @@ $result = $koneksi->query($sql);
 if ($result->num_rows === 0) {
     $status = 'empty';
 } else {
-    // Siapkan daftar no_resi
+    // Siapkan daftar no_resi dan array untuk update
     $resi_list = "";
+    $no_resi_array = [];
+
     while ($row = $result->fetch_assoc()) {
         $resi_list .= $row['no_resi'] . "\n";
+        $no_resi_array[] = $row['no_resi'];
     }
 
     // Buat isi email
@@ -44,11 +50,17 @@ if ($result->num_rows === 0) {
         $mail->setFrom($_ENV['SMTP_USER'], 'Sistem Resi');
         $mail->addAddress('sigit.suprihandoko@jne.co.id', 'Team IT Helpdesk');
 
-        $mail->isHTML(false);
+        $mail->isHTML(false); // text biasa
         $mail->Subject = 'Cancel resi orion hybrid';
         $mail->Body    = $body;
 
         $mail->send();
+
+        // Update status menjadi CLOSED (atau DONE, sesuaikan kebutuhan)
+        $no_resi_in = "'" . implode("','", $no_resi_array) . "'";
+        $update = "UPDATE tb_resi SET status = 'DONE' WHERE no_resi IN ($no_resi_in)";
+        $koneksi->query($update);
+
         $status = 'success';
     } catch (Exception $e) {
         $status = 'error';
@@ -65,13 +77,12 @@ if ($result->num_rows === 0) {
 </head>
 
 <body>
-
     <script>
         <?php if ($status === 'success'): ?>
             Swal.fire({
                 icon: 'success',
                 title: 'Email berhasil dikirim',
-                text: 'Klik OK untuk kembali ke halaman utama',
+                text: 'Klik OK untuk kembali ke halaman utama'
             }).then(() => {
                 window.location.href = 'index.php';
             });
@@ -93,7 +104,6 @@ if ($result->num_rows === 0) {
             });
         <?php endif; ?>
     </script>
-
 </body>
 
 </html>
