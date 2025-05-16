@@ -64,10 +64,16 @@ $datetime = date('Y-m-d H:i');
                         <!-- Tombol Simpan -->
                         <div class="d-flex col-md-2 mb-3">
                             <button type="submit" class="btn btn-info mr-2" name="add_resi">Proses</button>
-                            <a href="report_resi.php" class="btn btn-secondary">Report</a>
+                            <a href="report_resi.php" class="btn btn-secondary mr-2">Report</a>
                         </div>
                     </div>
                 </form>
+                <div class="col-md-12 d-flex justify-content-end mb-3">
+                    <form action="send_open_resi_email.php" method="POST">
+                        <button type="submit" class="btn btn-danger">Close Cancel Resi</button>
+                    </form>
+                </div>
+
             </div>
 
             <div class="row">
@@ -150,5 +156,29 @@ $datetime = date('Y-m-d H:i');
     </div>
 </main>
 </div>
+
+<script>
+    document.getElementById("cancelButton").addEventListener("click", function() {
+        const payload = {
+            no_resi: document.getElementById("no_resi").value,
+            keterangan: document.getElementById("keterangan").value,
+            nama_agen: document.getElementById("nama_agen")?.value || '',
+            user_id: "<?= $user1 ?>",
+            tgl_req: "<?= $datetime ?>"
+        };
+
+        fetch("https://prod-xxx.logic.azure.com/workflows/xyz...", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.ok ? alert("Dikirim ke Teams / Email") : alert("Gagal mengirim!"))
+            .catch(err => alert("Error: " + err));
+    });
+</script>
+
+
 
 <?php include '../../footer.php'; ?>
