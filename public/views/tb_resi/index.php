@@ -68,11 +68,13 @@ $datetime = date('Y-m-d H:i');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12 d-flex justify-content-end mb-3">
-                    <form action="send_open_resi_email.php" method="POST">
-                        <button type="submit" class="btn btn-danger">Close Cancel Resi</button>
-                    </form>
-                </div>
+                <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
+                    <div class="col-md-12 d-flex justify-content-end mb-3">
+                        <form action="send_open_resi_email.php" method="POST">
+                            <button type="submit" class="btn btn-danger">Close Cancel Resi</button>
+                        </form>
+                    </div>
+                <?php } ?>
 
             </div>
 
