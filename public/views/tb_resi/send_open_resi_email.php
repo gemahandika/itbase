@@ -57,9 +57,12 @@ if ($result->num_rows === 0) {
         $mail->send();
 
         // Update status menjadi CLOSED (atau DONE, sesuaikan kebutuhan)
+        $date = new DateTime();
+        $formattedDate = $date->format('Y-m-d H:i:s'); // format sesuai datetime MySQL
         $no_resi_in = "'" . implode("','", $no_resi_array) . "'";
-        $update = "UPDATE tb_resi SET status = 'DONE' WHERE no_resi IN ($no_resi_in)";
+        $update = "UPDATE tb_resi SET status = 'DONE', tgl_proses = '$formattedDate' WHERE no_resi IN ($no_resi_in)";
         $koneksi->query($update);
+
 
         $status = 'success';
     } catch (Exception $e) {

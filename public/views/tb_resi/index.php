@@ -89,7 +89,6 @@ $datetime = date('Y-m-d H:i');
                                     <th class="small text-center">NAMA AGEN</th>
                                     <th class="small text-center">USER ID</th>
                                     <th class="small text-center">TANGGAL REQUEEST CANCEL</th>
-                                    <th class="small text-center">TANGGAL PROSES CANCEL</th>
                                     <th class="small text-center">STATUS</th>
                                     <th class="small text-center">ACTION</th>
 
@@ -119,7 +118,6 @@ $datetime = date('Y-m-d H:i');
                                         <td class="small text-center"><?= $data['nama_agen'] ?></td>
                                         <td class="small text-center"><?= $data['user_id'] ?></td>
                                         <td class="small text-center"><?= $data['tgl_req'] ?></td>
-                                        <td class="small text-center"><?= $data['tgl_proses'] ?></td>
                                         <td class="small text-center"><?= $data['status'] ?></td>
 
                                         <td class="small text-center d-flex">
