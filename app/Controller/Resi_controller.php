@@ -10,7 +10,7 @@ if (isset($_POST['add_resi'])) {
     $nama_agen = trim(mysqli_real_escape_string($koneksi, $_POST['nama_agen']));
     $user_id = trim(mysqli_real_escape_string($koneksi, $_POST['user_id']));
 
-    $check_query = "SELECT * FROM tb_resi WHERE no_resi = '$no_resi'";
+    $check_query = "SELECT * FROM tb_resi WHERE status = 'OPEN' AND no_resi = '$no_resi'";
     $check_result = $koneksi->query($check_query);
     if ($check_result->num_rows > 0) {
         showSweetAlert('warning', 'Oops...', $pesan, '#3085d6', '../../public/views/tb_resi/index.php');

@@ -40,14 +40,14 @@ $datetime = date('Y-m-d H:i');
                                 <select type="text" class="form-select select2" id="nama_agen" name="nama_agen">
                                     <option value="">-- Pilih Data --</option>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_counter ORDER BY nama_counter ASC") or die(mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM user ORDER BY nama_user ASC") or die(mysqli_error($koneksi));
                                     $result = array();
                                     while ($data = mysqli_fetch_array($sql)) {
                                         $result[] = $data;
                                     }
                                     foreach ($result as $data) {
                                     ?>
-                                        <option value="<?= $data['nama_counter'] ?>"><?= $data['nama_counter'] ?></option>
+                                        <option value="<?= $data['nama_user'] ?>"><?= $data['nama_user'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -124,7 +124,7 @@ $datetime = date('Y-m-d H:i');
 
                                         <td class="small text-center d-flex">
                                             <?php if (has_access($allowed_super_admin)) { ?>
-                                                <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
+                                                <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Hapus</a>
                                             <?php } ?>
                                             <button
                                                 type="button"
