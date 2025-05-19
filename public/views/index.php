@@ -11,7 +11,7 @@ if (in_array("super_admin", $_SESSION['admin_akses'])) {
     // Jika memiliki akses "admin", arahkan ke halaman tertentu untuk admin
     header("location:dashboard/home.php");
     exit();
-} elseif (in_array("sales", $_SESSION['admin_akses'])) {
+} elseif (in_array("SALES", $_SESSION['admin_akses'])) {
     // Jika memiliki akses "user", arahkan ke halaman tertentu untuk user
     header("location:tb_resi/index.php");
     exit();
