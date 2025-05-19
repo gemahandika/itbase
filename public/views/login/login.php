@@ -84,18 +84,17 @@ if (isset($_POST['login'])) {
 <!--begin::Head-->
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>ITBASE | Login</title>
-  <!--begin::Primary Meta Tags-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="title" content="AdminLTE 4 | Login Page" />
-  <meta name="author" content="ColorlibHQ" />
-  <link rel="shortcut icon" href="../../../app/Asset/img/jne/JNE.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JNE Medan | Login</title>
 
-  <meta
-    name="keywords"
-    content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard" />
-  <!--end::Primary Meta Tags-->
+  <!-- Meta Description & SEO -->
+  <meta name="description" content="Login page JNE Medan ATK System">
+  <meta name="keywords" content="JNE, ATK, login system, dashboard, admin panel">
+  <meta name="author" content="JNE Medan IT Support">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../../../app/Asset/img/jne/JNE.png"><!--end::Primary Meta Tags-->
   <!--begin::Fonts-->
   <link
     rel="stylesheet"
