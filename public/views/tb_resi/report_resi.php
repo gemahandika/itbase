@@ -111,8 +111,7 @@ $end_date = $_GET['end_date'] ?? '';
                                         <td class="small text-center"><?= $data['status'] ?></td>
                                         <?php if (has_access($allowed_super_admin)) { ?>
                                             <td class="small text-center d-flex">
-
-                                                <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Tutup</a>
+                                                <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Hapus</a>
                                             </td>
                                         <?php } ?>
                                     </tr>
