@@ -65,65 +65,66 @@ include 'modal_userapp.php'
                                             <a href="#" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#aksesModal<?= $data['login_id'] ?>">Aktifkan User</a>
                                         </td>
                                     </tr>
-                            </tbody>
-                            <!-- Modal Edit -->
-                            <div class="modal fade" id="aksesModal<?= $data['login_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form action="../../../app/Controller/Userapp_controller.php" method="post">
-                                        <div class="modal-content">
-                                            <div class="modal-header btn-success">
-                                                <h6 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">AKTIFKAN USER</h6>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="report-it">
-                                                    <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
-                                                    <div class="label-1 ">
-                                                        <label for="cabang"><strong>CABANG :</strong></label><br>
-                                                        <input class="form-control form-control-sm" type="text" name="cabang" value="<?= $data['cabang'] ?>" required readonly>
-                                                    </div>
-                                                    <div class="label-1 mt-4">
-                                                        <label for="nik"><strong>NIK :</strong></label><br>
-                                                        <input class="form-control form-control-sm" type="text" name="nik" value="<?= $data['nik'] ?>" required readonly>
-                                                    </div>
-                                                    <div class="label-1 mt-4">
-                                                        <label for="nama_user"><strong>FULLNAME :</strong></label><br>
-                                                        <input class="form-control form-control-sm" type="text" name="nama_user" value="<?= $data['nama_user'] ?>" required readonly>
-                                                    </div>
-                                                    <div class="label-1 mt-4">
-                                                        <label for="username"><strong>USER ID :</strong></label><br>
-                                                        <input class="form-control form-control-sm" type="text" name="username" value="<?= $data['username'] ?>" required readonly>
-                                                    </div>
 
-                                                    <input type="hidden" name="password" value="<?= $data['password'] ?>" required readonly>
+                                    <!-- Modal Edit -->
+                                    <div class="modal fade" id="aksesModal<?= $data['login_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <form action="../../../app/Controller/Userapp_controller.php" method="post">
+                                                <div class="modal-content">
+                                                    <div class="modal-header btn-success">
+                                                        <h6 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">AKTIFKAN USER</h6>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="report-it">
+                                                            <input type="hidden" name="id" value="<?= $data['login_id'] ?>">
+                                                            <div class="label-1 ">
+                                                                <label for="cabang"><strong>CABANG :</strong></label><br>
+                                                                <input class="form-control form-control-sm" type="text" name="cabang" value="<?= $data['cabang'] ?>" required readonly>
+                                                            </div>
+                                                            <div class="label-1 mt-4">
+                                                                <label for="nik"><strong>NIK :</strong></label><br>
+                                                                <input class="form-control form-control-sm" type="text" name="nik" value="<?= $data['nik'] ?>" required readonly>
+                                                            </div>
+                                                            <div class="label-1 mt-4">
+                                                                <label for="nama_user"><strong>FULLNAME :</strong></label><br>
+                                                                <input class="form-control form-control-sm" type="text" name="nama_user" value="<?= $data['nama_user'] ?>" required readonly>
+                                                            </div>
+                                                            <div class="label-1 mt-4">
+                                                                <label for="username"><strong>USER ID :</strong></label><br>
+                                                                <input class="form-control form-control-sm" type="text" name="username" value="<?= $data['username'] ?>" required readonly>
+                                                            </div>
 
-                                                    <?php if (in_array("sales", $_SESSION['admin_akses'])) { ?>
-                                                        <div class="label-1 mt-4">
-                                                            <label for="role"><strong>ROLE</strong></label>
-                                                            <input class="form-control form-control-sm" type="text" name="role" value="agen" required readonly>
+                                                            <input type="hidden" name="password" value="<?= $data['password'] ?>" required readonly>
+
+                                                            <?php if (in_array("sales", $_SESSION['admin_akses'])) { ?>
+                                                                <div class="label-1 mt-4">
+                                                                    <label for="role"><strong>ROLE</strong></label>
+                                                                    <input class="form-control form-control-sm" type="text" name="role" value="agen" required readonly>
+                                                                </div>
+                                                            <?php } ?>
+                                                            <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
+                                                                <div class="label-1 mt-4">
+                                                                    <label for="role"><strong>ROLE</strong></label>
+                                                                    <select class="form-control form-control-sm" type="text" name="role" required>
+                                                                        <option value="AGEN">AGEN</option>
+                                                                        <option value="SALES">SALES</option>
+                                                                    </select>
+                                                                </div>
+                                                            <?php } ?>
+
                                                         </div>
-                                                    <?php } ?>
-                                                    <?php if (in_array("super_admin", $_SESSION['admin_akses']) || in_array("admin", $_SESSION['admin_akses'])) { ?>
-                                                        <div class="label-1 mt-4">
-                                                            <label for="role"><strong>ROLE</strong></label>
-                                                            <select class="form-control form-control-sm" type="text" name="role" required>
-                                                                <option value="AGEN">AGEN</option>
-                                                                <option value="SALES">SALES</option>
-                                                            </select>
-                                                        </div>
-                                                    <?php } ?>
-
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <input type="submit" name="aktif_user" class="btn btn-success" style="color: white;" value="Aktifkan">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                <input type="submit" name="aktif_user" class="btn btn-success" style="color: white;" value="Aktifkan">
-                                            </div>
+                                            </form>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
