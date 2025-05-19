@@ -32,7 +32,7 @@ if (isset($_POST['add_user'])) {
     $id = trim(mysqli_real_escape_string($koneksi, $_POST['id']));
     $akses = trim(mysqli_real_escape_string($koneksi, $_POST['role']));
     mysqli_query($koneksi, "INSERT INTO admin_akses (login_id, akses_id) VALUES('$id', '$akses')");
-    showSweetAlert('success', 'Success', 'User Berhasil Di Aktifkan', '#3085d6', '../../public/views/user_app/index.php');
+    showSweetAlert('success', 'Success', 'User Berhasil Di Aktifkan', '#3085d6', '../../public/views/user_app/aktivasi.php');
 } else if (isset($_POST['edit_userapp'])) {
     $id = $_POST['login_id'];
     $nik = trim(mysqli_real_escape_string($koneksi, $_POST['nik']));
