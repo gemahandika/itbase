@@ -141,8 +141,10 @@ if (isset($_POST['login'])) {
             <div class="input-group-text"><span class="bi bi-people"></span></div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" name="password" />
-            <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+            <input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+              <i class="bi bi-eye-slash" id="iconToggle"></i>
+            </button>
           </div>
           <!--begin::Row-->
           <div class="row">
@@ -208,8 +210,17 @@ if (isset($_POST['login'])) {
       }
     });
   </script>
-  <!--end::OverlayScrollbars Configure-->
-  <!--end::Script-->
+  <script>
+    const toggleBtn = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    const icon = document.getElementById('iconToggle');
+
+    toggleBtn.addEventListener('click', function() {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      icon.className = isPassword ? "bi bi-eye" : "bi bi-eye-slash";
+    });
+  </script>
 </body>
 <!--end::Body-->
 

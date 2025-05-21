@@ -40,7 +40,6 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {
@@ -88,21 +87,68 @@
 </script>
 
 <script>
-    const startDateInput = document.getElementById('start_date');
-    const endDateInput = document.getElementById('end_date');
+    document.addEventListener('DOMContentLoaded', function() {
+        const startDateInput = document.getElementById('start_date');
+        const endDateInput = document.getElementById('end_date');
 
-    // Atur batas minimum end_date saat halaman dimuat
-    if (startDateInput.value) {
-        endDateInput.min = startDateInput.value;
-    }
+        if (startDateInput && endDateInput) {
+            if (startDateInput.value) {
+                endDateInput.min = startDateInput.value;
+            }
 
-    // Update min end_date setiap kali start_date berubah
-    startDateInput.addEventListener('change', function() {
-        endDateInput.min = this.value;
+            startDateInput.addEventListener('change', function() {
+                endDateInput.min = this.value;
+                if (endDateInput.value < this.value) {
+                    endDateInput.value = this.value;
+                }
+            });
+        }
+    });
+</script>
 
-        // Jika end_date lebih kecil dari start_date, sesuaikan nilainya
-        if (endDateInput.value < this.value) {
-            endDateInput.value = this.value;
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tampilkan/sembunyikan password
+        window.togglePassword = function(id) {
+            const field = document.getElementById(id);
+            field.type = field.type === "password" ? "text" : "password";
+        }
+
+        const passwordInput = document.getElementById('password');
+        const confirmInput = document.getElementById('confirm_password');
+        const strengthMessage = document.getElementById('strengthMessage');
+
+        // Validasi real-time saat mengetik password
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            const isStrong = password.length >= 6 && /\d/.test(password) && /[A-Za-z]/.test(password);
+
+            if (!isStrong) {
+                strengthMessage.textContent = "Password harus minimal 6 karakter dan mengandung huruf & angka.";
+            } else {
+                strengthMessage.textContent = "";
+            }
+        });
+
+        // Validasi saat submit form
+        const form = document.getElementById('formUpdatePassword');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const password = passwordInput.value;
+                const confirm = confirmInput.value;
+                const isStrong = password.length >= 6 && /\d/.test(password) && /[A-Za-z]/.test(password);
+
+                if (!isStrong) {
+                    strengthMessage.textContent = "Password harus minimal 6 karakter dan mengandung huruf & angka.";
+                    e.preventDefault();
+                    return;
+                }
+
+                if (password !== confirm) {
+                    alert("Konfirmasi password tidak cocok!");
+                    e.preventDefault();
+                }
+            });
         }
     });
 </script>

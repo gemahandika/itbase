@@ -79,7 +79,7 @@ $time = date("H:i");
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <a href="../profile/index.php" class="nav-link" data-widget="navbar-search" href="#" role="button">
                             <span><?= $user1 ?></span>
                             <i class="bi bi-person-fill"></i>
                         </a>
@@ -91,13 +91,13 @@ $time = date("H:i");
         </nav>
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
             <div class="sidebar-brand">
-                <a href="./index.html" class="brand-link">
+                <div class="brand-link">
                     <span class="brand-text fw-light">IT Base </span>
                     <img
                         src="../../../app/Asset/img/jne/JNE.png"
                         alt="Logo"
                         class="brand-image opacity-75 shadow" />
-                </a>
+                </div>
             </div>
             <div class="sidebar-wrapper">
                 <nav class="mt-2">
