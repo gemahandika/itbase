@@ -80,12 +80,10 @@ $time = date("H:i");
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="../profile/index.php" class="nav-link" data-widget="navbar-search" href="#" role="button">
-                            <span><?= $user1 ?></span>
-                            <i class="bi bi-person-fill"></i>
+                            <span style="text-transform: uppercase;"><b class="btn btn-success btn-sm"><?= $user1 ?></b></span>
+                            <i class=" bi bi-person-fill"></i>
                         </a>
                     </li>
-
-
                 </ul>
             </div>
         </nav>
