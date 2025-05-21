@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update = mysqli_query($koneksi, "UPDATE user SET password = '$hashed_password' WHERE username = '$username'");
 
     if ($update) {
-        echo "<script>alert('Password berhasil diupdate.'); window.location.href='../../public/views/profile/index.php';</script>";
+        showSweetAlert('success', 'Sukses', 'Password Berhasil di Update', '#3085d6', '../../public/views/profile/index.php');
     } else {
-        echo "<script>alert('Gagal update password.'); window.location.href='../../public/views/profile/index.php';</script>";
+        showSweetAlert('warning', 'Oops...', 'Gagal Update !!', '#3085d6', '../../public/views/profile/index.php');
     }
 }
