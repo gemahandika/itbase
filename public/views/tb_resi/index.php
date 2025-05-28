@@ -141,7 +141,7 @@ $datetime = date('Y-m-d H:i');
                             </tbody>
                         </table>
                         <!-- Modal -->
-                        <div class="modal fade bd-example-modal-lg" role="dialog" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal fade bd-example-modal-lg" role="dialog" id="editModal" tabindex="-1" aria-labelledby="editModalLabel">
                             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                 <div class="modal-content" id="modalEditContent">
                                     <!-- isi form akan di-load lewat Ajax -->
