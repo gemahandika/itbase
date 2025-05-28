@@ -52,10 +52,10 @@ $datetime = date('Y-m-d H:i');
                                 </select>
                             </div>
                         <?php } ?>
-                        <input type="hidden" name="nama_agen" value="<?= $nama ?>" readonly>
+                        <!-- <input type="hidden" name="nama_agen" value="<?= $nama ?>" readonly> -->
                         <input type="hidden" name="user_id" value="<?= $user1 ?>" readonly>
                         <input type="hidden" name="status" value="OPEN" readonly>
-                        <?php if (in_array("agen", $_SESSION['admin_akses'])) { ?>
+                        <?php if (in_array("AGEN", $_SESSION['admin_akses'])) { ?>
                             <input type="hidden" name="nama_agen" value="<?= $nama ?>" readonly>
                         <?php } ?>
                         <!-- Hidden Tanggal Request -->
