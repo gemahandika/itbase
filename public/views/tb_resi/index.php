@@ -92,8 +92,9 @@ $datetime = date('Y-m-d H:i');
                                     <th class="small text-center">USER ID</th>
                                     <th class="small text-center">TANGGAL REQUEEST CANCEL</th>
                                     <th class="small text-center">STATUS</th>
-                                    <th class="small text-center">ACTION</th>
-
+                                    <?php if (has_access($allowed_super_admin)) { ?>
+                                        <th class="small text-center">ACTION</th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
