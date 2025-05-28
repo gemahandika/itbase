@@ -33,7 +33,7 @@ include 'modal_userapp.php';
                 <div class="col-md-12">
                     <div class="card mb-4 p-3">
                         <div class="d-flex">
-                            <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
+                            <button type="button" class="btn btn-primary mb-2 mr-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</button>
                             <a href="aktivasi.php" type="button" class="btn btn-info mb-2">Aktivasi</a>
                         </div>
                         <table id="example" class="display" style="width:100%">

@@ -7,7 +7,7 @@ include '../../../app/Config/koneksi.php';
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Users</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -77,7 +77,7 @@ include '../../../app/Config/koneksi.php';
                     <input type="hidden" id="status" name="status" value="nonaktif" password>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" name="add_user">Save changes</button>
                 </div>
             </form>
