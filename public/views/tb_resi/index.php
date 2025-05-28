@@ -122,11 +122,9 @@ $datetime = date('Y-m-d H:i');
                                         <td class="small text-center"><?= $data['user_id'] ?></td>
                                         <td class="small text-center"><?= $data['tgl_req'] ?></td>
                                         <td class="small text-center"><?= $data['status'] ?></td>
-
-                                        <td class="small text-center d-flex">
-                                            <?php if (has_access($allowed_super_admin)) { ?>
+                                        <?php if (has_access($allowed_super_admin)) { ?>
+                                            <td class="small text-center d-flex">
                                                 <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Hapus</a>
-
                                                 <button
                                                     type="button"
                                                     class="btn btn-primary btn-sm openModalButton"
@@ -136,8 +134,8 @@ $datetime = date('Y-m-d H:i');
                                                     data-bs-target="#editModal">
                                                     Edit
                                                 </button>
-                                            <?php } ?>
-                                        </td>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>
