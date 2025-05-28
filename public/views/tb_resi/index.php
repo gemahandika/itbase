@@ -134,6 +134,12 @@ $datetime = date('Y-m-d H:i');
                                                     data-bs-target="#editModal">
                                                     Edit
                                                 </button>
+                                                <a href="#"
+                                                    class="btn btn-success btn-sm open-stok-modal"
+                                                    data-id="<?= $data['id_resi'] ?>"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#modalStok"
+                                                    style="margin-right: 5px;">EDIT NEW</a>
                                             </td>
                                         <?php } ?>
                                     </tr>
@@ -141,10 +147,10 @@ $datetime = date('Y-m-d H:i');
                             </tbody>
                         </table>
                         <!-- Modal -->
-                        <div class="modal fade bd-example-modal-lg" role="dialog" id="editModal" tabindex="-1" aria-labelledby="editModalLabel">
-                            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                                <div class="modal-content" id="modalEditContent">
-                                    <!-- isi form akan di-load lewat Ajax -->
+                        <div class="modal fade" id="modalStok" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content" id="modalStokContent">
+                                    <!-- Konten akan dimuat dengan AJAX -->
                                 </div>
                             </div>
                         </div>
@@ -269,73 +275,22 @@ $datetime = date('Y-m-d H:i');
     });
 </script>
 
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tampilkan/sembunyikan password
-        window.togglePassword = function(id) {
-            const field = document.getElementById(id);
-            field.type = field.type === "password" ? "text" : "password";
-        }
-
-        const passwordInput = document.getElementById('password');
-        const confirmInput = document.getElementById('confirm_password');
-        const strengthMessage = document.getElementById('strengthMessage');
-
-        // Validasi real-time saat mengetik password
-        passwordInput.addEventListener('input', function() {
-            const password = passwordInput.value;
-            const isStrong = password.length >= 6 && /\d/.test(password) && /[A-Za-z]/.test(password);
-
-            if (!isStrong) {
-                strengthMessage.textContent = "Password harus minimal 6 karakter dan mengandung huruf & angka.";
-            } else {
-                strengthMessage.textContent = "";
-            }
-        });
-
-        // Validasi saat submit form
-        const form = document.getElementById('formUpdatePassword');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                const password = passwordInput.value;
-                const confirm = confirmInput.value;
-                const isStrong = password.length >= 6 && /\d/.test(password) && /[A-Za-z]/.test(password);
-
-                if (!isStrong) {
-                    strengthMessage.textContent = "Password harus minimal 6 karakter dan mengandung huruf & angka.";
-                    e.preventDefault();
-                    return;
-                }
-
-                if (password !== confirm) {
-                    alert("Konfirmasi password tidak cocok!");
-                    e.preventDefault();
-                }
-            });
+<script>
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('open-stok-modal')) {
+            e.preventDefault(); // hindari default link behavior jika ada
+            var id_barang = e.target.getAttribute('data-id');
+            fetch('modal_tambah_stok.php?id=' + id_barang)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('modalStokContent').innerHTML = html;
+                    // Trigger bootstrap modal show manually (optional, just in case)
+                    var modal = new bootstrap.Modal(document.getElementById('modalStok'));
+                    modal.show();
+                });
         }
     });
-</script> -->
-<!-- <script>
-    document.getElementById("cancelButton").addEventListener("click", function() {
-        const payload = {
-            no_resi: document.getElementById("no_resi").value,
-            keterangan: document.getElementById("keterangan").value,
-            nama_agen: document.getElementById("nama_agen")?.value || '',
-            user_id: "<?= $user1 ?>",
-            tgl_req: "<?= $datetime ?>"
-        };
-
-        fetch("https://prod-xxx.logic.azure.com/workflows/xyz...", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.ok ? alert("Dikirim ke Teams / Email") : alert("Gagal mengirim!"))
-            .catch(err => alert("Error: " + err));
-    });
-</script> -->
+</script>
 
 
 </body>

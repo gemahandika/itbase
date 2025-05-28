@@ -34,7 +34,9 @@ if ($result->num_rows === 0) {
     $body .= "Mohon bantuannya untuk mencancel resi berikut ini:\n\n";
     $body .= "Berikut No Resinya:\n";
     $body .= $resi_list . "\n";
-    $body .= "Dikarenakan petugas salah entry.";
+    $body .= "Dikarenakan petugas salah entry.\n\n";
+    $body .= "Terima Kasih \n";
+    $body .= "Gemasyah Handika";
 
     $mail = new PHPMailer(true);
 
@@ -48,8 +50,12 @@ if ($result->num_rows === 0) {
         $mail->Port       = $_ENV['SMTP_PORT'];
 
         $mail->setFrom($_ENV['SMTP_USER'], 'Sistem Resi');
-        $mail->addAddress('sigit.suprihandoko@jne.co.id', 'Team IT Helpdesk');
-
+        $mail->addAddress('ithelpdesk@jne.co.id', 'Team IT Helpdesk');
+        // Tambahkan CC
+        $mail->addCC('mes.it@jne.co.id', 'Team IT');
+        $mail->addCC('mes.it1@jne.co.id', 'Team IT');
+        $mail->addCC('mes.it2@jne.co.id', 'Team IT');
+        $mail->addCC('sigit.suprihandoko@jne.co.id', 'Head IT');
         $mail->isHTML(false); // text biasa
         $mail->Subject = 'Cancel resi orion hybrid';
         $mail->Body    = $body;
