@@ -157,27 +157,7 @@ $datetime = date('Y-m-d H:i');
 </main>
 </div>
 
-<script>
-    document.getElementById("cancelButton").addEventListener("click", function() {
-        const payload = {
-            no_resi: document.getElementById("no_resi").value,
-            keterangan: document.getElementById("keterangan").value,
-            nama_agen: document.getElementById("nama_agen")?.value || '',
-            user_id: "<?= $user1 ?>",
-            tgl_req: "<?= $datetime ?>"
-        };
 
-        fetch("https://prod-xxx.logic.azure.com/workflows/xyz...", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.ok ? alert("Dikirim ke Teams / Email") : alert("Gagal mengirim!"))
-            .catch(err => alert("Error: " + err));
-    });
-</script>
 
 
 
