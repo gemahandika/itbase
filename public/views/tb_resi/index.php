@@ -125,16 +125,17 @@ $datetime = date('Y-m-d H:i');
                                         <td class="small text-center d-flex">
                                             <?php if (has_access($allowed_super_admin)) { ?>
                                                 <a href="delete.php?id=<?= $data['id_resi'] ?>" class="btn btn-danger btn-sm mr-2">Hapus</a>
+
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-primary btn-sm openModalButton"
+                                                    data-id_resi="<?= $data['id_resi']; ?>"
+                                                    data-mode="resign"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    Edit
+                                                </button>
                                             <?php } ?>
-                                            <button
-                                                type="button"
-                                                class="btn btn-primary btn-sm openModalButton"
-                                                data-id_resi="<?= $data['id_resi']; ?>"
-                                                data-mode="resign"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editModal">
-                                                Edit
-                                            </button>
                                         </td>
                                     </tr>
                                 <?php } ?>
