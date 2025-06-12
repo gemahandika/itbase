@@ -9,9 +9,8 @@
 </head>
 
 <body>
-  <!-- <h2>Link sudah sudah berganti, silahkan di klik :</h2><a href="https://appcancel.jnemedan.com">Klik disini Untuk buka link dashboard terbaru</a> -->
   <script>
-    window.location.href = 'https://appcancel.jnemedan.com'
+    window.location.href = 'public/views/login/login.php'
   </script>
 </body>
 
